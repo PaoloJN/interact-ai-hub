@@ -1,153 +1,154 @@
 'use server'
 
+// GLOBAL: Auth: userId: "123"
+
 import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
-import { kv } from '@vercel/kv'
+import { readDatabase, writeDatabase } from '@/database/functions'
 
-import { auth } from '@/auth'
 import { type Chat } from '@/lib/types'
 
-export async function getChats(userId?: string | null) {
+const userId = '123'
+
+export async function getChats(userId?: string | null): Promise<Chat[]> {
   if (!userId) {
     return []
   }
 
   try {
-    const pipeline = kv.pipeline()
-    const chats: string[] = await kv.zrange(`user:chat:${userId}`, 0, -1, {
-      rev: true
-    })
-
-    for (const chat of chats) {
-      pipeline.hgetall(chat)
-    }
-
-    const results = await pipeline.exec()
-
-    return results as Chat[]
+    const allChats = await readDatabase()
+    const chats = Object.values(allChats).filter(chat => chat.userId === userId)
+    return chats as Chat[]
   } catch (error) {
+    console.error('Error getting chats:', error)
     return []
   }
 }
 
-export async function getChat(id: string, userId: string) {
-  const chat = await kv.hgetall<Chat>(`chat:${id}`)
+export async function getChat(
+  id: string,
+  userId: string
+): Promise<Chat | null> {
+  try {
+    const chats = await readDatabase()
+    const chatKey = `chat:${id}` // Construct the correct key
+    const chat = chats[chatKey] // Use the constructed key to access the chat
 
-  if (!chat || (userId && chat.userId !== userId)) {
+    if (!chat || (userId && chat.userId !== userId)) {
+      return null
+    }
+
+    return chat
+  } catch (error) {
+    console.error('Error getting chat:', error)
     return null
   }
-
-  return chat
 }
 
 export async function removeChat({ id, path }: { id: string; path: string }) {
-  const session = await auth()
-
-  if (!session) {
+  if (!userId) {
     return {
       error: 'Unauthorized'
     }
   }
 
-  //Convert uid to string for consistent comparison with session.user.id
-  const uid = String(await kv.hget(`chat:${id}`, 'userId'))
+  try {
+    const chats = await readDatabase()
+    const chatKey = `chat:${id}` // Construct the correct key
+    const chat = chats[chatKey] // Use the constructed key to access the chat
 
-  if (uid !== session?.user?.id) {
-    return {
-      error: 'Unauthorized'
+    if (!chat || chat.userId !== userId) {
+      return {
+        error: 'Unauthorized'
+      }
     }
-  }
 
-  await kv.del(`chat:${id}`)
-  await kv.zrem(`user:chat:${session.user.id}`, `chat:${id}`)
-
-  revalidatePath('/')
-  return revalidatePath(path)
-}
-
-export async function clearChats() {
-  const session = await auth()
-
-  if (!session?.user?.id) {
-    return {
-      error: 'Unauthorized'
-    }
-  }
-
-  const chats: string[] = await kv.zrange(`user:chat:${session.user.id}`, 0, -1)
-  if (!chats.length) {
-    return redirect('/')
-  }
-  const pipeline = kv.pipeline()
-
-  for (const chat of chats) {
-    pipeline.del(chat)
-    pipeline.zrem(`user:chat:${session.user.id}`, chat)
-  }
-
-  await pipeline.exec()
-
-  revalidatePath('/')
-  return redirect('/')
-}
-
-export async function getSharedChat(id: string) {
-  const chat = await kv.hgetall<Chat>(`chat:${id}`)
-
-  if (!chat || !chat.sharePath) {
-    return null
-  }
-
-  return chat
-}
-
-export async function shareChat(id: string) {
-  const session = await auth()
-
-  if (!session?.user?.id) {
-    return {
-      error: 'Unauthorized'
-    }
-  }
-
-  const chat = await kv.hgetall<Chat>(`chat:${id}`)
-
-  if (!chat || chat.userId !== session.user.id) {
+    delete chats[chatKey] // Delete using the correct key
+    await writeDatabase(chats)
+    revalidatePath('/')
+    return revalidatePath(path)
+  } catch (error) {
+    console.error('Error removing chat:', error)
     return {
       error: 'Something went wrong'
     }
   }
-
-  const payload = {
-    ...chat,
-    sharePath: `/share/${chat.id}`
-  }
-
-  await kv.hmset(`chat:${chat.id}`, payload)
-
-  return payload
 }
 
+export async function clearChats() {
+  if (!userId) {
+    return {
+      error: 'Unauthorized'
+    }
+  }
+
+  try {
+    const chats = await readDatabase()
+    const userChats = Object.values(chats).filter(
+      chat => chat.userId === userId
+    )
+
+    if (userChats.length === 0) {
+      return redirect('/')
+    }
+
+    // Remove user's chats from the database
+    for (const chat of userChats) {
+      delete chats[chat.id]
+    }
+
+    await writeDatabase(chats)
+
+    revalidatePath('/')
+    return redirect('/')
+  } catch (error) {
+    console.error('Error clearing chats:', error)
+    return {
+      error: 'Something went wrong'
+    }
+  }
+}
+
+// export async function saveChat(chat: Chat) {
+//   const session = await auth()
+
+//   if (session && session.user) {
+//     const pipeline = kv.pipeline()
+//     pipeline.hmset(`chat:${chat.id}`, chat)
+//     pipeline.zadd(`user:chat:${chat.userId}`, {
+//       score: Date.now(),
+//       member: `chat:${chat.id}`
+//     })
+//     await pipeline.exec()
+//   } else {
+//     return
+//   }
+// }
+
+// convert saveChat to use json
 export async function saveChat(chat: Chat) {
-  const session = await auth()
+  const session = {
+    user: {
+      id: '123',
+      email: ''
+    }
+  }
 
   if (session && session.user) {
-    const pipeline = kv.pipeline()
-    pipeline.hmset(`chat:${chat.id}`, chat)
-    pipeline.zadd(`user:chat:${chat.userId}`, {
-      score: Date.now(),
-      member: `chat:${chat.id}`
-    })
-    await pipeline.exec()
+    const chats = await readDatabase()
+    chats[`chat:${chat.id}`] = chat
+    await writeDatabase(chats)
   } else {
     return
   }
 }
 
+// TODO: See What does this function do ?
 export async function refreshHistory(path: string) {
   redirect(path)
 }
 
+// TODO: See What does this function do ?
 export async function getMissingKeys() {
   const keysRequired = ['OPENAI_API_KEY']
   return keysRequired

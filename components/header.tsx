@@ -2,7 +2,7 @@ import * as React from 'react'
 import Link from 'next/link'
 
 import { cn } from '@/lib/utils'
-import { auth } from '@/auth'
+// import { auth } from '@/auth'
 import { Button, buttonVariants } from '@/components/ui/button'
 import {
   IconGitHub,
@@ -17,7 +17,14 @@ import { ChatHistory } from './chat-history'
 import { Session } from '@/lib/types'
 
 async function UserOrLogin() {
-  const session = (await auth()) as Session
+  // TODO: remove userOrLogin and add model selector
+  const session = {
+    user: {
+      id: '123',
+      email: ''
+    }
+  }
+
   return (
     <>
       {session?.user ? (
@@ -33,7 +40,7 @@ async function UserOrLogin() {
           <IconNextChat className="hidden size-6 mr-2 dark:block" />
         </Link>
       )}
-      <div className="flex items-center">
+      {/* <div className="flex items-center">
         <IconSeparator className="size-6 text-muted-foreground/50" />
         {session?.user ? (
           <UserMenu user={session.user} />
@@ -42,7 +49,7 @@ async function UserOrLogin() {
             <Link href="/login">Login</Link>
           </Button>
         )}
-      </div>
+      </div> */}
     </>
   )
 }
@@ -55,7 +62,7 @@ export function Header() {
           <UserOrLogin />
         </React.Suspense>
       </div>
-      <div className="flex items-center justify-end space-x-2">
+      {/* <div className="flex items-center justify-end space-x-2">
         <a
           target="_blank"
           href="https://github.com/vercel/nextjs-ai-chatbot/"
@@ -65,16 +72,7 @@ export function Header() {
           <IconGitHub />
           <span className="hidden ml-2 md:flex">GitHub</span>
         </a>
-        <a
-          href="https://vercel.com/templates/Next.js/nextjs-ai-chatbot"
-          target="_blank"
-          className={cn(buttonVariants())}
-        >
-          <IconVercel className="mr-2" />
-          <span className="hidden sm:block">Deploy to Vercel</span>
-          <span className="sm:hidden">Deploy</span>
-        </a>
-      </div>
+      </div> */}
     </header>
   )
 }

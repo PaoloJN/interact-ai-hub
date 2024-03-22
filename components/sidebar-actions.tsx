@@ -27,13 +27,13 @@ import {
 interface SidebarActionsProps {
   chat: Chat
   removeChat: (args: { id: string; path: string }) => ServerActionResult<void>
-  shareChat: (id: string) => ServerActionResult<Chat>
+  // shareChat: (id: string) => ServerActionResult<Chat>
 }
 
 export function SidebarActions({
   chat,
-  removeChat,
-  shareChat
+  removeChat
+  // shareChat
 }: SidebarActionsProps) {
   const router = useRouter()
   const [deleteDialogOpen, setDeleteDialogOpen] = React.useState(false)
@@ -43,7 +43,7 @@ export function SidebarActions({
   return (
     <>
       <div className="">
-        <Tooltip>
+        {/* <Tooltip>
           <TooltipTrigger asChild>
             <Button
               variant="ghost"
@@ -55,7 +55,7 @@ export function SidebarActions({
             </Button>
           </TooltipTrigger>
           <TooltipContent>Share chat</TooltipContent>
-        </Tooltip>
+        </Tooltip> */}
         <Tooltip>
           <TooltipTrigger asChild>
             <Button
@@ -71,13 +71,13 @@ export function SidebarActions({
           <TooltipContent>Delete chat</TooltipContent>
         </Tooltip>
       </div>
-      <ChatShareDialog
+      {/* <ChatShareDialog
         chat={chat}
         shareChat={shareChat}
         open={shareDialogOpen}
         onOpenChange={setShareDialogOpen}
         onCopy={() => setShareDialogOpen(false)}
-      />
+      /> */}
       <AlertDialog open={deleteDialogOpen} onOpenChange={setDeleteDialogOpen}>
         <AlertDialogContent>
           <AlertDialogHeader>

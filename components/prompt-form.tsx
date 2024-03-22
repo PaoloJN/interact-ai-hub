@@ -8,7 +8,11 @@ import { useActions, useUIState } from 'ai/rsc'
 import { UserMessage } from './stocks/message'
 import { type AI } from '@/lib/chat/actions'
 import { Button } from '@/components/ui/button'
-import { IconArrowElbow, IconPlus } from '@/components/ui/icons'
+import {
+  IconArrowElbow,
+  IconPlus,
+  ArrowUpFromLine
+} from '@/components/ui/icons'
 import {
   Tooltip,
   TooltipContent,
@@ -66,8 +70,8 @@ export function PromptForm({
         setMessages(currentMessages => [...currentMessages, responseMessage])
       }}
     >
-      <div className="relative flex max-h-60 w-full grow flex-col overflow-hidden bg-background px-8 sm:rounded-md sm:border sm:px-12">
-        <Tooltip>
+      <div className="relative flex max-h-60 w-full grow flex-col overflow-hidden bg-background px-4 sm:rounded-md sm:border sm:px-2 mb-8">
+        {/* <Tooltip>
           <TooltipTrigger asChild>
             <Button
               variant="outline"
@@ -82,7 +86,7 @@ export function PromptForm({
             </Button>
           </TooltipTrigger>
           <TooltipContent>New Chat</TooltipContent>
-        </Tooltip>
+        </Tooltip> */}
         <Textarea
           ref={inputRef}
           tabIndex={0}
@@ -102,7 +106,7 @@ export function PromptForm({
           <Tooltip>
             <TooltipTrigger asChild>
               <Button type="submit" size="icon" disabled={input === ''}>
-                <IconArrowElbow />
+                <ArrowUpFromLine />
                 <span className="sr-only">Send message</span>
               </Button>
             </TooltipTrigger>
