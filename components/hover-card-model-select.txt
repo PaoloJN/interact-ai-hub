@@ -1,0 +1,86 @@
+ <HoverCard>
+            <HoverCardContent
+              side="right"
+              sideOffset={255}
+              align="start"
+              alignOffset={-41}
+              forceMount
+              className="min-h-[280px]"
+            >
+              <div className="grid gap-2">
+                <div>
+                  <div className="p-1 text-sm bg-white rounded-t-lg">
+                    <div className="flex items-center">
+                      {/* <Image alt="" model="[object Object]" loading="lazy" width="16" height="16" decoding="async" data-nimg="1" className="w-4 h-4 mr-2" srcset="/_next/image?url=%2Ficons%2Fanthropic.svg&amp;w=16&amp;q=75&amp;dpl=dpl_5TkbabBmfQ36nHGjkaymCAd9Lkrp 1x, /_next/image?url=%2Ficons%2Fanthropic.svg&amp;w=32&amp;q=75&amp;dpl=dpl_5TkbabBmfQ36nHGjkaymCAd9Lkrp 2x" src="/_next/image?url=%2Ficons%2Fanthropic.svg&amp;w=32&amp;q=75&amp;dpl=dpl_5TkbabBmfQ36nHGjkaymCAd9Lkrp" style="color: transparent;"> */}
+                      <div className="space-x-1">
+                        <span className="text-zinc-600">Anthropic</span>
+                        <span className="text-zinc-400">/</span>
+                        <span className="font-medium text-zinc-900">
+                          claude-instant-1.2
+                        </span>
+                      </div>
+                    </div>
+                    <div className="mt-4 text-xs text-zinc-500">
+                      A faster, cheaper yet still very capable version of
+                      Claude, which can handle a range of tasks including casual
+                      dialogue, text analysis, summarization, and document
+                      comprehension.
+                    </div>
+                  </div>
+                  <div className="p-1 text-xs bg-white divide-y">
+                    <div className="flex items-start py-3 text-[.5rem]">
+                      <div className="w-24 text-xs font-medium">Context</div>
+                      <div className="flex-1 text-xs text-zinc-600">
+                        100,000 tokens
+                      </div>
+                    </div>
+                    <div className="flex items-start py-3 text-[.5rem]">
+                      <div className="w-24 text-xs font-medium">
+                        Input Pricing
+                      </div>
+                      <div className="flex-1 text-xs text-zinc-600">
+                        $1.63 / million tokens
+                      </div>
+                    </div>
+                    <div className="flex items-start py-3 text-[.5rem]">
+                      <div className="w-24 text-xs font-medium">
+                        Output Pricing
+                      </div>
+                      <div className="flex-1 text-xs text-zinc-600">
+                        $5.51 / million tokens
+                      </div>
+                    </div>
+                    <div className="flex items-start py-3 text-[.5rem]">
+                      <div className="w-24 text-xs font-medium">Uptime</div>
+                      <div className="flex-1 text-xs text-zinc-600">
+                        <div>
+                          <div className="flex items-center text-gray-400 text-[10px] space-x-2 mt-1">
+                            <div>12 hrs ago</div>
+                            <div className="flex-1 h-[1px] bg-gray-200"></div>
+                            <div className="w-[80px] inline-flex items-center justify-center">
+                              100.00% Uptime
+                            </div>
+                            <div className="flex-1 h-[1px] bg-gray-200"></div>
+                            <div>Now</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {/* <h4 className="font-medium leading-none">{peekedModel.name}</h4>
+                <div className="text-sm text-muted-foreground">
+                  {peekedModel.description}
+                </div>
+                {peekedModel.strengths ? (
+                  <div className="mt-4 grid gap-2">
+                    <h5 className="text-sm font-medium leading-none">
+                      Strengths
+                    </h5>
+                    <ul className="text-sm text-muted-foreground">
+                      {peekedModel.strengths}
+                    </ul>
+                  </div>
+                ) : null} */}
+              </div>
+            </HoverCardContent>

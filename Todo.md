@@ -5,5 +5,5 @@
 - [] use local storage to save the data instead of using a database for privacy reasons
 - [] add more models support
 - [] add ollama docs support
-- [] add perplixity like using genrative ui
+- [] add perplexity like using generative ui
 - [] convert to a desktop app using turi

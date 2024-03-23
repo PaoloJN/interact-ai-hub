@@ -18,6 +18,9 @@ export async function SidebarList({ userId }: SidebarListProps) {
 
   return (
     <div className="flex flex-1 flex-col overflow-hidden">
+      <div className="flex items-center justify-between p-4">
+        <h4 className="text-sm font-medium">Chat History</h4>
+      </div>
       <div className="flex-1 overflow-auto">
         {chats?.length ? (
           <div className="space-y-2 px-2">
