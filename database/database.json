@@ -42,7 +42,7 @@
     "id": "Ipn1B2d",
     "title": "What are the trending memecoins today?",
     "userId": "123",
-    "createdAt": "2024-03-23T22:26:52.306Z",
+    "createdAt": "2024-03-24T00:30:33.095Z",
     "messages": [
       {
         "id": "4kGNq9b",
@@ -54,6 +54,17 @@
         "role": "function",
         "name": "listStocks",
         "content": "[{\"symbol\":\"DOGE\",\"price\":0.25,\"delta\":0.03},{\"symbol\":\"SHIB\",\"price\":0.000008,\"delta\":-0.000002},{\"symbol\":\"SAFEMOON\",\"price\":1e-8,\"delta\":1e-9}]"
+      },
+      {
+        "id": "fQRw3fE",
+        "role": "user",
+        "content": "View DOGE"
+      },
+      {
+        "id": "CXmUlzf",
+        "role": "function",
+        "name": "showStockPrice",
+        "content": "{\"symbol\":\"DOGE\",\"price\":0.25,\"delta\":0.03}"
       }
     ],
     "path": "/chat/Ipn1B2d"
