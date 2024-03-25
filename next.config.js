@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
   // output: 'export',
+  experimental: {
+    windowHistorySupport: true
+  },
   images: {
     remotePatterns: [
       {

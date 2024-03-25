@@ -11,6 +11,7 @@ import { MemoizedReactMarkdown } from '@/components/markdown'
 import { IconOpenAI, IconUser } from '@/components/ui/icons'
 import { ChatMessageActions } from '@/components/chat-message-actions'
 
+// TODO: Show actions on message hover and add more actions
 export interface ChatMessageProps {
   message: Message
 }
@@ -73,7 +74,8 @@ export function ChatMessage({ message, ...props }: ChatMessageProps) {
         >
           {message.content}
         </MemoizedReactMarkdown>
-        <ChatMessageActions message={message} />
+
+        {/* <ChatMessageActions message={message} /> */}
       </div>
     </div>
   )

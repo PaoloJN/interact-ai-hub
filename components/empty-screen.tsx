@@ -3,14 +3,7 @@ import { UseChatHelpers } from 'ai/react'
 import { Button } from '@/components/ui/button'
 import { ExternalLink } from '@/components/external-link'
 import { IconArrowRight } from '@/components/ui/icons'
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle
-} from '@/components/ui/card'
+import { Card, CardContent } from '@/components/ui/card'
 
 const exampleMessages = [
   {
@@ -27,7 +20,7 @@ const exampleMessages = [
   }
 ]
 
-export function EmptyScreen() {
+export function EmptyScreen({ setInput }: Pick<UseChatHelpers, 'setInput'>) {
   return (
     <div className="mx-auto max-w-2xl px-4">
       <Card>
@@ -63,6 +56,22 @@ export function EmptyScreen() {
             <div className="font-medium w-28">Output Pricing</div>
             <div className="flex-1 text-zinc-600">$0.28 / million tokens</div>
           </div>
+          {/* <p className="leading-normal text-muted-foreground">
+            You can start a conversation here or try the following examples:
+          </p>
+          <div className="mt-4 flex flex-col items-start space-y-2">
+            {exampleMessages.map((message, index) => (
+              <Button
+                key={index}
+                variant="link"
+                className="h-auto p-0 text-base"
+                onClick={() => setInput(message.message)}
+              >
+                <IconArrowRight className="mr-2 text-muted-foreground" />
+                {message.heading}
+              </Button>
+            ))}
+          </div> */}
         </CardContent>
         <div className="px-6 py-5 text-xs font-medium border-t rounded-b-lg bg-zinc-100/75">
           <div className="flex items-center justify-between">

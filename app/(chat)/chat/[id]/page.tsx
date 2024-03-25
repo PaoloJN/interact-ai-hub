@@ -2,9 +2,9 @@ import { type Metadata } from 'next'
 import { notFound, redirect } from 'next/navigation'
 
 // TODO: Remove auth
-import { getChat, getMissingKeys } from '@/app/actions'
+import { getChat } from '@/app/actions'
 import { Chat } from '@/components/chat'
-import { AI } from '@/lib/chat/actions'
+// import { AI } from '@/lib/chat/actions'
 
 export interface ChatPageProps {
   params: {
@@ -21,10 +21,6 @@ export async function generateMetadata({
       email: ''
     }
   }
-
-  // if (!session?.user) {
-  //   return {}
-  // }
 
   const chat = await getChat(params.id, session.user.id)
   return {
@@ -47,9 +43,11 @@ export default async function ChatPage({ params }: ChatPageProps) {
     redirect('/')
   }
 
-  return (
-    <AI initialAIState={{ chatId: chat.id, messages: chat.messages }}>
-      <Chat id={chat.id} session={session} initialMessages={chat.messages} />
-    </AI>
-  )
+  // return (
+  //   <AI initialAIState={{ chatId: chat.id, messages: chat.messages }}>
+  //     <Chat id={chat.id} session={session} initialMessages={chat.messages} />
+  //   </AI>
+  // )
+
+  return <Chat id={chat.id} initialMessages={chat.messages} />
 }
