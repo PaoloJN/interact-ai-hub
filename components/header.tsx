@@ -1,3 +1,5 @@
+'use client'
+
 import * as React from 'react'
 import Link from 'next/link'
 
@@ -17,7 +19,7 @@ import { ChatHistory } from './chat-history'
 import { Session } from '@/lib/types'
 import { ModelSelector } from './model-selector'
 
-async function UserOrLogin() {
+function UserOrLogin() {
   // TODO: remove userOrLogin and add model selector
   const session = {
     user: {
@@ -60,11 +62,12 @@ async function UserOrLogin() {
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 flex items-center justify-between w-full h-16 px-4 border-b shrink-0 bg-background">
+    // sticky top-0 z-50
+    <header className="sticky top-0 z-50 flex items-center justify-between w-full h-16 px-4 border-b shrink-0 bg-background ">
       <div className="flex items-center">
-        <React.Suspense fallback={<div className="flex-1 overflow-auto" />}>
-          <UserOrLogin />
-        </React.Suspense>
+        {/* <React.Suspense fallback={<div className="flex-1 overflow-auto" />}> */}
+        <UserOrLogin />
+        {/* </React.Suspense> */}
       </div>
       {/* <div className="flex items-center justify-end space-x-2">
         <a

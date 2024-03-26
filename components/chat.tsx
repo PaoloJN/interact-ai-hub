@@ -1,79 +1,81 @@
 'use client'
 
-import { useChat, type Message } from 'ai/react'
-
 import { cn } from '@/lib/utils'
 import { ChatList } from '@/components/chat-list'
 import { ChatPanel } from '@/components/chat-panel'
 import { EmptyScreen } from '@/components/empty-screen'
-import { ChatScrollAnchor } from '@/components/chat-scroll-anchor'
-
-import { toast } from 'react-hot-toast'
-import { usePathname, useRouter } from 'next/navigation'
 import { useLocalStorage } from '@/lib/hooks/use-local-storage'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import { useUIState, useAIState } from 'ai/rsc'
+import { Session } from '@/lib/types'
+import { usePathname, useRouter } from 'next/navigation'
+import { Message } from '@/lib/chat/actions'
+import { useScrollAnchor } from '@/lib/hooks/use-scroll-anchor'
+import { Header } from './header'
+// import { toast } from 'sonner'
+
 export interface ChatProps extends React.ComponentProps<'div'> {
   initialMessages?: Message[]
   id?: string
+  session?: Session
 }
 
-// TODO: Fix new chat animation
-export function Chat({ id, initialMessages, className }: ChatProps) {
-  const path = usePathname()
+export function Chat({ id, className, session }: ChatProps) {
   const router = useRouter()
+  const path = usePathname()
+  const [input, setInput] = useState('')
+  const [messages] = useUIState()
+  const [aiState] = useAIState()
 
-  //  Global options
-  const [baseURL, setBaseURL] = useLocalStorage('baseURL', null)
-  const [temperature, setTemperature] = useLocalStorage('temperature', null)
+  const [_, setNewChatId] = useLocalStorage('newChatId', id)
 
-  // options for chat
-  const [model, setModel] = useLocalStorage('model', null)
-
-  const { messages, append, reload, stop, isLoading, input, setInput } =
-    useChat({
-      initialMessages,
-      id,
-      body: {
-        id,
-        options: {
-          model: model
-        }
-      },
-      onResponse(response) {
-        if (response.status === 401) {
-          toast.error(response.statusText)
-        }
-      },
-      onFinish() {
-        if (!path.includes('chat')) {
-          router.push(`/chat/${id}`, { scroll: false })
-          router.refresh()
-        }
+  useEffect(() => {
+    if (session?.user) {
+      if (!path.includes('chat') && messages.length === 1) {
+        window.history.replaceState({}, '', `/chat/${id}`)
       }
-    })
+    }
+  }, [id, path, session?.user, messages])
+
+  useEffect(() => {
+    const messagesLength = aiState.messages?.length
+    if (messagesLength === 2) {
+      router.refresh()
+    }
+  }, [aiState.messages, router])
+
+  // check if the chat id is new
+  useEffect(() => {
+    setNewChatId(id)
+  })
+
+  const { messagesRef, scrollRef, visibilityRef, isAtBottom, scrollToBottom } =
+    useScrollAnchor()
 
   return (
-    <>
-      <div className={cn('pb-[200px] pt-4 md:pt-10', className)}>
+    <div
+      className="group w-full overflow-auto duration-300 ease-in-out pl-0 peer-[[data-state=open]]:lg:pl-[250px] peer-[[data-state=open]]:xl:pl-[300px] no-scrollbar"
+      ref={scrollRef}
+    >
+      <Header />
+      <div
+        className={cn('pb-[200px] pt-6 md:pt-12', className)}
+        ref={messagesRef}
+      >
         {messages.length ? (
-          <>
-            <ChatList messages={messages} />
-            <ChatScrollAnchor trackVisibility={isLoading} />
-          </>
+          <ChatList messages={messages} isShared={false} session={session} />
         ) : (
-          <EmptyScreen setInput={setInput} />
+          <EmptyScreen />
         )}
+        <div className="h-px w-full" ref={visibilityRef} />
       </div>
       <ChatPanel
         id={id}
-        isLoading={isLoading}
-        stop={stop}
-        append={append}
-        reload={reload}
-        messages={messages}
         input={input}
         setInput={setInput}
+        isAtBottom={isAtBottom}
+        scrollToBottom={scrollToBottom}
       />
-    </>
+    </div>
   )
 }

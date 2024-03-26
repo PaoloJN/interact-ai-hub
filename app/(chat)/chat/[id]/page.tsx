@@ -4,7 +4,7 @@ import { notFound, redirect } from 'next/navigation'
 // TODO: Remove auth
 import { getChat } from '@/app/actions'
 import { Chat } from '@/components/chat'
-// import { AI } from '@/lib/chat/actions'
+import { AI } from '@/lib/chat/actions'
 
 export interface ChatPageProps {
   params: {
@@ -12,16 +12,16 @@ export interface ChatPageProps {
   }
 }
 
+const session = {
+  user: {
+    id: '123',
+    email: ''
+  }
+}
+
 export async function generateMetadata({
   params
 }: ChatPageProps): Promise<Metadata> {
-  const session = {
-    user: {
-      id: '123',
-      email: ''
-    }
-  }
-
   const chat = await getChat(params.id, session.user.id)
   return {
     title: chat?.title.toString().slice(0, 50) ?? 'Chat'
@@ -29,13 +29,6 @@ export async function generateMetadata({
 }
 
 export default async function ChatPage({ params }: ChatPageProps) {
-  const session = {
-    user: {
-      id: '123',
-      email: ''
-    }
-  }
-
   const userId = session.user.id as string
   const chat = await getChat(params.id, userId)
 
@@ -43,11 +36,9 @@ export default async function ChatPage({ params }: ChatPageProps) {
     redirect('/')
   }
 
-  // return (
-  //   <AI initialAIState={{ chatId: chat.id, messages: chat.messages }}>
-  //     <Chat id={chat.id} session={session} initialMessages={chat.messages} />
-  //   </AI>
-  // )
-
-  return <Chat id={chat.id} initialMessages={chat.messages} />
+  return (
+    <AI initialAIState={{ chatId: chat.id, messages: chat.messages }}>
+      <Chat id={chat.id} session={session} initialMessages={chat.messages} />
+    </AI>
+  )
 }

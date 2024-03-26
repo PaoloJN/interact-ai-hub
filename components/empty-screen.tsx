@@ -20,7 +20,8 @@ const exampleMessages = [
   }
 ]
 
-export function EmptyScreen({ setInput }: Pick<UseChatHelpers, 'setInput'>) {
+// export function EmptyScreen({ setInput }: Pick<UseChatHelpers, 'setInput'>) {
+export function EmptyScreen() {
   return (
     <div className="mx-auto max-w-2xl px-4">
       <Card>

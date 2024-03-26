@@ -10,7 +10,9 @@ interface SidebarListProps {
 }
 
 const loadChats = cache(async (userId?: string) => {
-  return await getChats(userId)
+  const chats = await getChats(userId)
+  // reverse the order of chats; display the most recent chat first / animate the most recent chat first
+  return chats?.reverse()
 })
 
 export async function SidebarList({ userId }: SidebarListProps) {

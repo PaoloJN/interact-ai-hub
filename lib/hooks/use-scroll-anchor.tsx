@@ -8,6 +8,12 @@ export const useScrollAnchor = () => {
   const [isAtBottom, setIsAtBottom] = useState(true)
   const [isVisible, setIsVisible] = useState(false)
 
+  // console.log('messagesRef', messagesRef)
+  // console.log('scrollRef', scrollRef)
+  // console.log('visibilityRef', visibilityRef)
+  console.log('isAtBottom', isAtBottom)
+  console.log('isVisible', isVisible)
+
   const scrollToBottom = useCallback(() => {
     if (messagesRef.current) {
       messagesRef.current.scrollIntoView({
@@ -36,6 +42,11 @@ export const useScrollAnchor = () => {
         const offset = 25
         const isAtBottom =
           target.scrollTop + target.clientHeight >= target.scrollHeight - offset
+
+        console.log('target.scrollTop', target.scrollTop)
+        console.log('target.clientHeight', target.clientHeight)
+        console.log('target.scrollHeight', target.scrollHeight)
+        console.log('isAtBottom', isAtBottom)
 
         setIsAtBottom(isAtBottom)
       }

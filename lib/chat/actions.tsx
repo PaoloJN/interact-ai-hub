@@ -19,6 +19,8 @@ import {
   Purchase
 } from '@/components/stocks'
 
+// TODO: Remove Stock UI only text for now
+
 import { z } from 'zod'
 import { EventsSkeleton } from '@/components/stocks/events-skeleton'
 import { Events } from '@/components/stocks/events'
@@ -38,6 +40,8 @@ import { Chat } from '@/lib/types'
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY || ''
+  //   apiKey: 'ollama', // required but unused
+  //   baseURL: 'http://localhost:11434/v1'
 })
 
 async function confirmPurchase(symbol: string, price: number, amount: number) {
@@ -143,13 +147,16 @@ async function submitUserMessage(content: string) {
 
   const ui = render({
     model: 'gpt-3.5-turbo',
+    // model: 'llama2',
     provider: openai,
     initial: <SpinnerMessage />,
     messages: [
       {
         role: 'system',
         content: `\
-You are a menu suggestion bot for Gateway Subs in New york City.
+You are a stock trading conversation bot and you can help users buy stocks, step by step.
+You and the user can discuss stock prices and the user can adjust the amount of stocks they want to buy, or place an order, in the UI.
+
 Messages inside [] means that it's a UI element or a user event. For example:
 - "[Price of AAPL = 100]" means that an interface of the stock price of AAPL is shown to the user.
 - "[User has changed the amount of AAPL to 10]" means that the user has changed the amount of AAPL to 10 in the UI.
@@ -424,6 +431,7 @@ export const AI = createAI<AIState, UIState>({
         email: ''
       }
     }
+
     if (session && session.user) {
       const aiState = getAIState()
 
