@@ -29,6 +29,7 @@ import {
 import { MetaLlama, Mistral } from '@/components/ui/icons'
 
 import Image from 'next/image'
+import { useAIState } from 'ai/rsc'
 
 // interface ModelSelectorProps extends PopoverProps {
 //   types: readonly ModelType[]
@@ -81,165 +82,173 @@ export const models: any = [
   {
     id: '6',
     compony: 'Meta',
-    name: 'llama-v2-7b-chat',
-    icon: (
-      <MetaLlama
-        width={16}
-        height={16}
-        className="size-4 align-middle block shrink-0 mr-2"
-      />
-    )
-  },
-  {
-    id: '7',
-    compony: 'Meta',
-    name: 'llama-v2-7b-chat',
-    icon: (
-      <MetaLlama
-        width={16}
-        height={16}
-        className="size-4 align-middle block shrink-0 mr-2"
-      />
-    )
-  },
-  {
-    id: '8',
-    compony: 'Meta',
-    name: 'llama-v2-13b-chat',
-    icon: (
-      <MetaLlama
-        width={16}
-        height={16}
-        className="size-4 align-middle block shrink-0 mr-2"
-      />
-    )
-  },
-  {
-    id: '9',
-    compony: 'Meta',
-    name: 'llama-v2-70b-chat',
-    icon: (
-      <MetaLlama
-        width={16}
-        height={16}
-        className="size-4 align-middle block shrink-0 mr-2"
-      />
-    )
-  },
-  {
-    id: '10',
-    compony: 'Meta',
-    name: 'llama-v2-70b-chat-groq',
-    icon: (
-      <MetaLlama
-        width={16}
-        height={16}
-        className="size-4 align-middle block shrink-0 mr-2"
-      />
-    )
-  },
-  {
-    id: '11',
-    compony: 'Meta',
-    name: 'codelama-34b-instruct',
-    icon: (
-      <MetaLlama
-        width={16}
-        height={16}
-        className="size-4 align-middle block shrink-0 mr-2"
-      />
-    )
-  },
-  {
-    id: '12',
-    compony: 'Meta',
-    name: 'codelama-70b-instruct',
-    icon: (
-      <MetaLlama
-        width={16}
-        height={16}
-        className="size-4 align-middle block shrink-0 mr-2"
-      />
-    )
-  },
-  {
-    id: '13',
-    compony: 'Mistral',
-    name: 'mistral-7b-instruct-4k',
-    icon: (
-      <Mistral
-        width={16}
-        height={16}
-        className="size-3.5 align-middle block shrink-0 mr-2"
-      />
-    )
-  },
-  {
-    id: '14',
-    compony: 'Mistral',
-    name: 'mistral-8x7b',
-    icon: (
-      <Mistral
-        width={16}
-        height={16}
-        className="size-3.5 align-middle block shrink-0 mr-2"
-      />
-    )
-  },
-  {
-    id: '15',
-    compony: 'Mistral',
-    name: 'mistral-8x7b-groq',
-    icon: (
-      <Mistral
-        width={16}
-        height={16}
-        className="size-3.5 align-middle block shrink-0 mr-2"
-      />
-    )
+    label: 'llama-v2-7b-chat',
+    name: 'llama2',
+    properties: {
+      description:
+        '7 billion parameter open source model by Meta fine-tuned for chat purposes served by Fireworks. LLaMA v2 was trained on more data (~2 trillion tokens) compared to LLaMA v1 and supports context windows up to 4k tokens.',
+      context: '4,096 tokens',
+      inputPricing: '$0.07 / million tokens',
+      outputPricing: '$0.28 / million tokens'
+    }
+    // icon: (
+    //   <MetaLlama
+    //     width={16}
+    //     height={16}
+    //     className="size-4 align-middle block shrink-0 mr-2"
+    //   />
+    // )
   },
   {
     id: '16',
     compony: 'Mistral',
-    name: 'mistral-small',
-    icon: (
-      <Mistral
-        width={16}
-        height={16}
-        className="size-3.5 align-middle block shrink-0 mr-2"
-      />
-    )
-  },
-  {
-    id: '17',
-    compony: 'Mistral',
-    name: 'mistral-medium',
-    icon: (
-      <Mistral
-        width={16}
-        height={16}
-        className="size-3.5 align-middle block shrink-0 mr-2"
-      />
-    )
-  },
-  {
-    id: '18',
-    compony: 'Mistral',
-    name: 'mistral-large',
-    icon: (
-      <Mistral
-        width={16}
-        height={16}
-        className="size-3.5 align-middle block shrink-0 mr-2"
-      />
-    )
+    label: 'mistral',
+    name: 'mistral',
+    properties: {
+      description:
+        'Mistral Small is the ideal choice for simple tasks that one can do in bulk - like Classification, Customer Support, or Text Generation. It offers excellent performance at an affordable price point.',
+      context: '32,000 tokens',
+      inputPricing: '$2.00 / million tokens',
+      outputPricing: '$6.00 / million tokens'
+    }
+    // icon: (
+    //   <Mistral
+    //     width={16}
+    //     height={16}
+    //     className="size-3.5 align-middle block shrink-0 mr-2"
+    //   />
+    // )
   }
+
+  // {
+  //   id: '8',
+  //   compony: 'Meta',
+  //   name: 'llama-v2-13b-chat',
+  //   icon: (
+  //     <MetaLlama
+  //       width={16}
+  //       height={16}
+  //       className="size-4 align-middle block shrink-0 mr-2"
+  //     />
+  //   )
+  // },
+  // {
+  //   id: '9',
+  //   compony: 'Meta',
+  //   name: 'llama-v2-70b-chat',
+  //   icon: (
+  //     <MetaLlama
+  //       width={16}
+  //       height={16}
+  //       className="size-4 align-middle block shrink-0 mr-2"
+  //     />
+  //   )
+  // },
+  // {
+  //   id: '10',
+  //   compony: 'Meta',
+  //   name: 'llama-v2-70b-chat-groq',
+  //   icon: (
+  //     <MetaLlama
+  //       width={16}
+  //       height={16}
+  //       className="size-4 align-middle block shrink-0 mr-2"
+  //     />
+  //   )
+  // },
+  // {
+  //   id: '11',
+  //   compony: 'Meta',
+  //   name: 'codelama-34b-instruct',
+  //   icon: (
+  //     <MetaLlama
+  //       width={16}
+  //       height={16}
+  //       className="size-4 align-middle block shrink-0 mr-2"
+  //     />
+  //   )
+  // },
+  // {
+  //   id: '12',
+  //   compony: 'Meta',
+  //   name: 'codelama-70b-instruct',
+  //   icon: (
+  //     <MetaLlama
+  //       width={16}
+  //       height={16}
+  //       className="size-4 align-middle block shrink-0 mr-2"
+  //     />
+  //   )
+  // },
+  // {
+  //   id: '13',
+  //   compony: 'Mistral',
+  //   name: 'mistral-7b-instruct-4k',
+  //   icon: (
+  //     <Mistral
+  //       width={16}
+  //       height={16}
+  //       className="size-3.5 align-middle block shrink-0 mr-2"
+  //     />
+  //   )
+  // },
+  // {
+  //   id: '14',
+  //   compony: 'Mistral',
+  //   name: 'mistral-8x7b',
+  //   icon: (
+  //     <Mistral
+  //       width={16}
+  //       height={16}
+  //       className="size-3.5 align-middle block shrink-0 mr-2"
+  //     />
+  //   )
+  // },
+  // {
+  //   id: '15',
+  //   compony: 'Mistral',
+  //   name: 'mistral-8x7b-groq',
+  //   icon: (
+  //     <Mistral
+  //       width={16}
+  //       height={16}
+  //       className="size-3.5 align-middle block shrink-0 mr-2"
+  //     />
+  //   )
+  // },
+
+  // {
+  //   id: '17',
+  //   compony: 'Mistral',
+  //   name: 'mistral-medium',
+  //   icon: (
+  //     <Mistral
+  //       width={16}
+  //       height={16}
+  //       className="size-3.5 align-middle block shrink-0 mr-2"
+  //     />
+  //   )
+  // },
+  // {
+  //   id: '18',
+  //   compony: 'Mistral',
+  //   name: 'mistral-large',
+  //   icon: (
+  //     <Mistral
+  //       width={16}
+  //       height={16}
+  //       className="size-3.5 align-middle block shrink-0 mr-2"
+  //     />
+  //   )
+  // }
 ]
 
 export function ModelSelector() {
   const [open, setOpen] = React.useState(false)
-  const [selectedModel, setSelectedModel] = React.useState<Model>(models[0])
-  const [peekedModel, setPeekedModel] = React.useState<Model>(models[0])
+  const [selectedModel, setSelectedModel] = React.useState<any>(models[0])
+  const [peekedModel, setPeekedModel] = React.useState<any>(models[0])
+
+  const [aiState, setAIState] = useAIState()
 
   return (
     <div className="ml-2">
@@ -255,7 +264,7 @@ export function ModelSelector() {
             {selectedModel && selectedModel.icon}
             {selectedModel ? (
               <span className="truncate text-xs">
-                {selectedModel.compony} - {selectedModel.name}
+                {selectedModel.compony} - {selectedModel.label}
               </span>
             ) : (
               'Select a model...'
@@ -279,6 +288,10 @@ export function ModelSelector() {
                     onPeek={model => setPeekedModel(model)}
                     onSelect={() => {
                       setSelectedModel(model)
+                      // update ai state with selected model
+                      setAIState({ ...aiState, model: model })
+
+                      console.log('client', aiState)
                       setOpen(false)
                     }}
                   />
@@ -293,7 +306,7 @@ export function ModelSelector() {
 }
 
 interface ModelItemProps {
-  model: Model
+  model: any
   isSelected: boolean
   onSelect: () => void
   onPeek: (model: Model) => void

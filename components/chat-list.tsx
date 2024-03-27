@@ -16,8 +16,9 @@ export function ChatList({ messages, session, isShared }: ChatList) {
   }
 
   return (
-    <div className="relative mx-auto max-w-2xl px-4">
-      {!isShared && !session ? (
+    // <div className="relative mx-auto max-w-2xl px-4">
+    <div>
+      {/* {!isShared && !session ? (
         <>
           <div className="group relative mb-4 flex items-start md:-ml-12">
             <div className="bg-background flex size-[25px] shrink-0 select-none items-center justify-center rounded-md border shadow-sm">
@@ -39,12 +40,18 @@ export function ChatList({ messages, session, isShared }: ChatList) {
           </div>
           <Separator className="my-4" />
         </>
-      ) : null}
+      ) : null} */}
 
       {messages.map((message, index) => (
-        <div key={message.id}>
-          {message.display}
-          {index < messages.length - 1 && <Separator className="my-4" />}
+        // if even make bg gray else white
+        <div
+          key={message.id}
+          className={`${index % 2 === 0 ? 'bg-gray-50 dark:bg-background/30' : 'bg-white dark:bg-background/60'}`}
+        >
+          <div className="relative mx-auto max-w-2xl px-4 p-6 md:p-8">
+            {message.display}
+            {/* {index < messages.length - 1 && <Separator className="my-4" />} */}
+          </div>
         </div>
       ))}
     </div>

@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button'
 import { ExternalLink } from '@/components/external-link'
 import { IconArrowRight } from '@/components/ui/icons'
 import { Card, CardContent } from '@/components/ui/card'
+import { useAIState } from 'ai/rsc'
 
 const exampleMessages = [
   {
@@ -22,40 +23,49 @@ const exampleMessages = [
 
 // export function EmptyScreen({ setInput }: Pick<UseChatHelpers, 'setInput'>) {
 export function EmptyScreen() {
+  // get ai state
+  const [aiState] = useAIState()
+  const selected = aiState.model
+
   return (
-    <div className="mx-auto max-w-2xl px-4">
+    <div className="mx-auto max-w-2xl px-4 pt-6 md:pt-12">
       <Card>
         <div className="px-6 pt-5 text-sm bg-white rounded-t-lg">
           {/* <CardTitle>Card Title</CardTitle> */}
           <div className="flex items-center">
+            {/* {selected.icon} */}
+
             <div className="space-x-1">
-              <span className="text-zinc-600">Meta</span>
+              <span className="text-zinc-600">{selected.compony}</span>
               <span className="text-zinc-400">/</span>
               <span className="font-medium text-zinc-900">
-                llama-v2-7b-chat
+                {selected.label}
               </span>
             </div>
           </div>
           {/* <CardDescription>Card Description</CardDescription> */}
           <div className="mt-4 text-xs text-zinc-500">
-            7 billion parameter open source model by Meta fine-tuned for chat
-            purposes served by Fireworks. LLaMA v2 was trained on more data (~2
-            trillion tokens) compared to LLaMA v1 and supports context windows
-            up to 4k tokens.
+            {selected.properties.description}
           </div>
         </div>
         <CardContent className="px-6 py-5 text-xs bg-white divide-y">
           <div className="flex items-start py-3">
             <div className="font-medium w-28">Context</div>
-            <div className="flex-1 text-zinc-600">4,096 tokens</div>
+            <div className="flex-1 text-zinc-600">
+              {selected.properties.context} tokens
+            </div>
           </div>
           <div className="flex items-start py-3">
             <div className="font-medium w-28">Input Pricing</div>
-            <div className="flex-1 text-zinc-600">$0.07 / million tokens</div>
+            <div className="flex-1 text-zinc-600">
+              {selected.properties.inputPricing}
+            </div>
           </div>
           <div className="flex items-start py-3">
             <div className="font-medium w-28">Output Pricing</div>
-            <div className="flex-1 text-zinc-600">$0.28 / million tokens</div>
+            <div className="flex-1 text-zinc-600">
+              {selected.properties.outputPricing}
+            </div>
           </div>
           {/* <p className="leading-normal text-muted-foreground">
             You can start a conversation here or try the following examples:
@@ -85,11 +95,11 @@ export function EmptyScreen() {
                 <svg
                   fill="none"
                   height="16"
-                  shape-rendering="geometricPrecision"
+                  shapeRendering="geometricPrecision"
                   stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="1.5"
                   viewBox="0 0 24 24"
                   width="16"
                   aria-hidden="true"
@@ -108,11 +118,11 @@ export function EmptyScreen() {
                 <svg
                   fill="none"
                   height="16"
-                  shape-rendering="geometricPrecision"
+                  shapeRendering="geometricPrecision"
                   stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="1.5"
                   viewBox="0 0 24 24"
                   width="16"
                   aria-hidden="true"
@@ -132,11 +142,11 @@ export function EmptyScreen() {
               <svg
                 fill="none"
                 height="16"
-                shape-rendering="geometricPrecision"
+                shapeRendering="geometricPrecision"
                 stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="1.5"
                 viewBox="0 0 24 24"
                 width="16"
                 aria-hidden="true"

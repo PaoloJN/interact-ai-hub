@@ -10,7 +10,8 @@ import {
   IconGitHub,
   IconNextChat,
   IconSeparator,
-  IconVercel
+  IconVercel,
+  IconSettings
 } from '@/components/ui/icons'
 import { UserMenu } from '@/components/user-menu'
 import { SidebarMobile } from './sidebar-mobile'
@@ -69,8 +70,8 @@ export function Header() {
         <UserOrLogin />
         {/* </React.Suspense> */}
       </div>
-      {/* <div className="flex items-center justify-end space-x-2">
-        <a
+      <div className="flex items-center justify-end space-x-2">
+        {/* <a
           target="_blank"
           href="https://github.com/vercel/nextjs-ai-chatbot/"
           rel="noopener noreferrer"
@@ -78,8 +79,12 @@ export function Header() {
         >
           <IconGitHub />
           <span className="hidden ml-2 md:flex">GitHub</span>
-        </a>
-      </div> */}
+        </a> */}
+        {/* Settings Button */}
+        <Button variant="outline" size="icon">
+          <IconSettings />
+        </Button>
+      </div>
     </header>
   )
 }

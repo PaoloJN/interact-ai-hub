@@ -155,3 +155,11 @@ export async function getMissingKeys() {
     .map(key => (process.env[key] ? '' : key))
     .filter(key => key !== '')
 }
+
+// // Get installed models and check if env variables are set for OpenAI
+// export async function getSupportedModels() {
+//   // call api/tags to get all models
+//   const res = await fetch('http://localhost:3000/api/tags')
+//   const models = await res.body()
+//   return models
+// }

@@ -44,9 +44,11 @@ export function Chat({ id, className, session }: ChatProps) {
     }
   }, [aiState.messages, router])
 
-  // check if the chat id is new
   useEffect(() => {
     setNewChatId(id)
+    // print ai state
+    console.log('Client AI State')
+    console.log(aiState)
   })
 
   const { messagesRef, scrollRef, visibilityRef, isAtBottom, scrollToBottom } =
@@ -59,7 +61,8 @@ export function Chat({ id, className, session }: ChatProps) {
     >
       <Header />
       <div
-        className={cn('pb-[200px] pt-6 md:pt-12', className)}
+        // className={cn('pb-[200px] pt-6 md:pt-12', className)}
+        className={cn('pb-[200px]', className)}
         ref={messagesRef}
       >
         {messages.length ? (

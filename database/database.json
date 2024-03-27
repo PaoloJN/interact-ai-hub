@@ -1,245 +1,58 @@
 {
-  "chat:YSWVhHe": {
-    "id": "YSWVhHe",
-    "title": "hello",
-    "path": "/chat/YSWVhHe",
+  "chat:7loil2S": {
+    "id": "7loil2S",
+    "title": "what ai model are you ?",
+    "path": "/chat/7loil2S",
     "userId": "123",
+    "model": {
+      "name": "llama2:latest",
+      "model": "llama2:latest",
+      "modified_at": "2023-11-26T05:16:41.220257074-05:00",
+      "size": 3825819519,
+      "digest": "fe938a131f40e6f6d40083c9f0f430a515233eb2edaa6d72eb85c50d64f2300e",
+      "details": {
+        "parent_model": "",
+        "format": "gguf",
+        "family": "llama",
+        "families": null,
+        "parameter_size": "7B",
+        "quantization_level": "Q4_0",
+        "created_by": "Meta",
+        "context_length": 4096,
+        "description": "Llama 2 is released by Meta Platforms, Inc. This model is trained on 2 trillion tokens, and by default supports a context length of 4096. Llama 2 Chat models are fine-tuned on over 1 million human annotations, and are made for chat."
+      }
+    },
+    "created_at": "2024-03-27T07:24:24.181Z",
     "messages": [
       {
+        "id": "xt2Zi8k",
         "role": "user",
-        "content": "hello"
+        "content": "what ai model are you ?"
       },
       {
+        "id": "bi1YcZb",
         "role": "assistant",
-        "content": "Hello! It's nice to meet you. Is there something I can help you with or would you like to chat?"
-      },
-      {
-        "role": "user",
-        "content": "how are you"
-      },
-      {
-        "content": "I'm just an AI, I don't have feelings or emotions like humans do, so I can't really experience emotions like \"hello\" or \"how are you\". However, I'm here to help answer any questions you may have or provide assistance with any tasks you need help with. Is there something specific you'd like to know or discuss?",
-        "role": "assistant"
+        "content": "I don't have a physical form or the ability to be an AI model as I'm just a text-based artificial intelligence. I exist to generate text based on the data I've been given and the instructions provided by users. There is no specific AI model I am, I'm more like a text generator designed for interactive conversations."
       }
     ]
   },
-  "chat:undefined": {
-    "id": "ck6OBHd",
-    "title": "3 + 3",
-    "path": "/chat/undefined",
+  "chat:V1XWMV2": {
+    "id": "V1XWMV2",
+    "title": "write me a story",
     "userId": "123",
+    "createdAt": "2024-03-27T08:21:16.275Z",
     "messages": [
       {
+        "id": "42ZpeCP",
         "role": "user",
-        "content": "3 + 3"
+        "content": "write me a story"
       },
       {
-        "content": "\n5",
-        "role": "assistant"
-      }
-    ]
-  },
-  "chat:68wZWKm": {
-    "id": "68wZWKm",
-    "title": "teach me next js",
-    "path": "/chat/68wZWKm",
-    "userId": "123",
-    "messages": [
-      {
-        "role": "user",
-        "content": "teach me next js"
-      },
-      {
-        "content": "\nCertainly! Next.js is a popular React-based framework for building server-side rendered (SSR) and statically generated web applications. Here's an outline of how you can learn Next.js:\n\n1. Start with the basics: Begin by learning React, as Next.js is built on top of React. If you're new to React, start by reading the official documentation, watching tutorials, and building small projects to get a feel for the library.\n2. Learn about server-side rendering (SSR): Next.js is designed to make it easy to render your application on the server. Learn how SSR works and why it's important for SEO and performance.\n3. Understand the Next.js architecture: Study the Next.js architecture diagram, which explains how the framework handles routing, pages, and other features. This will help you understand how the framework works under the hood.\n4. Learn about getStaticProps and getStaticPaths: These are two important APIs in Next.js that allow you to generate static HTML for your pages at build time. Learn how to use these APIs to improve your application's performance and SEO.\n5. Explore the Next.js API: The Next.js API is a powerful tool that allows you to manipulate the rendering of your application. Learn how to use the API to customize your application's layout, styles, and more.\n6. Build a simple application: Start by building a simple application using Next.js, such as a blog or a landing page. This will give you hands-on experience with the framework and help you understand how it works.\n7. Learn about Internationalization (i18n) and Localization (L10n): Next.js supports i18n and L10n out of the box, which allows you to create applications that can be translated into different languages. Learn how to use these features to make your application more accessible and user-friendly.\n8. Explore third-party libraries: Next.js has a large ecosystem of third-party libraries and tools that can help you build more complex applications. Explore these libraries and learn how to integrate them into your projects.\n9. Read the official documentation: The Next.js documentation is extensive and covers all aspects of the framework. Read the documentation to learn about new features, best practices, and troubleshooting tips.\n10. Join the Next.js community: Connect with other Next.js developers on social media, attend meetups or conferences, and participate in online forums to learn from others and get help when you need it.\n\nBy following these steps, you'll be well on your way to becoming proficient in Next.js and building scalable, high-performance web applications with ease.",
-        "role": "assistant"
-      }
-    ]
-  },
-  "chat:UZxa8W9": {
-    "id": "UZxa8W9",
-    "title": "hello",
-    "path": "/chat/UZxa8W9",
-    "userId": "123",
-    "messages": [
-      {
-        "role": "user",
-        "content": "hello"
-      },
-      {
-        "content": "Hello! It's nice to meet you. How can I help you today?",
-        "role": "assistant"
-      }
-    ]
-  },
-  "chat:4mc9UVv": {
-    "id": "4mc9UVv",
-    "title": "how are you",
-    "userId": "123",
-    "createdAt": "2024-03-26T03:06:28.539Z",
-    "messages": [
-      {
-        "id": "X7PKDTb",
-        "role": "user",
-        "content": "how are you"
-      },
-      {
-        "id": "V8ltqm5",
+        "id": "uOkIl72",
         "role": "assistant",
-        "content": "Hello! I'm here to help you with stock trading. How can I assist you today?"
+        "content": "Of course! I'd be happy to write you a story. Can you please provide some details about what you would like the story to be about? For example, is it a romance, mystery, sci-fi, fantasy, or something else? And do you have any specific length or tone in mind?"
       }
     ],
-    "path": "/chat/4mc9UVv"
-  },
-  "chat:trLva22": {
-    "id": "trLva22",
-    "title": "hello",
-    "userId": "123",
-    "createdAt": "2024-03-26T03:07:42.310Z",
-    "messages": [
-      {
-        "id": "IUq3P8q",
-        "role": "user",
-        "content": "hello"
-      },
-      {
-        "id": "17w2WJd",
-        "role": "assistant",
-        "content": "Hi there! How can I assist you today?"
-      }
-    ],
-    "path": "/chat/trLva22"
-  },
-  "chat:ELelu6P": {
-    "id": "ELelu6P",
-    "title": "hello",
-    "userId": "123",
-    "createdAt": "2024-03-26T03:10:07.047Z",
-    "messages": [
-      {
-        "id": "iCNo7GA",
-        "role": "user",
-        "content": "hello"
-      },
-      {
-        "id": "UrQKrsr",
-        "role": "assistant",
-        "content": "Hello! How can I assist you today?"
-      }
-    ],
-    "path": "/chat/ELelu6P"
-  },
-  "chat:SiGh4z6": {
-    "id": "SiGh4z6",
-    "title": "whats 5 + 5",
-    "userId": "123",
-    "createdAt": "2024-03-26T03:12:13.127Z",
-    "messages": [
-      {
-        "id": "XvZyxHm",
-        "role": "user",
-        "content": "whats 5 + 5"
-      },
-      {
-        "id": "AWRLYsr",
-        "role": "assistant",
-        "content": "The sum of 5 + 5 is 10."
-      }
-    ],
-    "path": "/chat/SiGh4z6"
-  },
-  "chat:ubZzDZf": {
-    "id": "ubZzDZf",
-    "title": "write me a 400 word story",
-    "userId": "123",
-    "createdAt": "2024-03-26T04:11:58.215Z",
-    "messages": [
-      {
-        "id": "auFHuJb",
-        "role": "user",
-        "content": "write me a 400 word story"
-      },
-      {
-        "id": "dn5qw3T",
-        "role": "assistant",
-        "content": "Once upon a time in a dense forest, there lived a wise old owl named Oliver. Oliver was known far and wide for his knowledge and wisdom. Animals from all corners of the forest would seek his advice on various matters.\n\nOne day, a young squirrel named Sammy approached Oliver with a troubled look on his face. Sammy explained to Oliver that there was a mysterious fruit tree deep in the forest that no animal had ever dared to approach. The rumors whispered among the animals were that the tree was cursed and anyone who dared to pick a fruit from it would face misfortune.\n\nOliver listened carefully to Sammy's tale and pondered for a moment. With a nod of assurance, Oliver decided to accompany Sammy to the mysterious fruit tree. As they journeyed deeper into the forest, the atmosphere grew eerie, and the trees seemed to whisper warnings to them.\n\nFinally, they reached the clearing where the mysterious fruit tree stood. The tree was unlike any other they had seen, with shimmering fruits hanging from its branches. Sammy hesitated, his fear getting the better of him, but Oliver encouraged him to be brave.\n\nWith a steady wing, Oliver plucked a fruit from the tree and took a bite. To their surprise, the fruit was the most delicious they had ever tasted. The rumors of the curse seemed to vanish as they indulged in the sweet fruit.\n\nAs they made their way back to the forest, word of their daring adventure spread like wildfire. The animals marveled at Oliver and Sammy's bravery and toasted to their courage.\n\nFrom that day on, the mysterious fruit tree became a gathering place for all the animals in the forest. They would share stories, laughter, and of course, the delicious fruits from the tree.\n\nOliver and Sammy's friendship grew stronger, and Oliver became a mentor to Sammy, teaching him the ways of the forest and passing down his wisdom.\n\nAnd so, the wise old owl and the young squirrel taught the forest animals a valuable lesson - sometimes, the greatest rewards come from facing your fears and taking a leap of faith."
-      }
-    ],
-    "path": "/chat/ubZzDZf"
-  },
-  "chat:bVpMruk": {
-    "id": "bVpMruk",
-    "title": "write me a 400 word story",
-    "userId": "123",
-    "createdAt": "2024-03-26T04:12:19.052Z",
-    "messages": [
-      {
-        "id": "17LDTzL",
-        "role": "user",
-        "content": "write me a 400 word story"
-      },
-      {
-        "id": "J8ZQupj",
-        "role": "assistant",
-        "content": "Once upon a time, in a bustling city filled with skyscrapers and bright lights, there was a young aspiring stock trader named Alex. Alex had always been fascinated by the world of finance and dreamed of making it big on Wall Street. Armed with determination and a keen eye for market trends, Alex set out on a journey to conquer the stock market.\n\nWith a laptop in hand and a cup of coffee by his side, Alex delved into the world of stocks, studying charts and analyzing data late into the night. He closely followed the movements of popular tech companies like Apple, Google, and Amazon, eager to make his mark in the world of trading.\n\nOne day, while scrolling through a financial news website, Alex stumbled upon a trending stock that caught his attention. The stock belonged to a small tech startup that had just announced a groundbreaking innovation that was set to revolutionize the industry. Without hesitation, Alex decided to invest in the stock, believing in the company's potential for growth.\n\nAs the days passed, Alex watched in amazement as the stock price soared, bringing him substantial profits. Encouraged by his success, Alex continued to explore new investment opportunities, diversifying his portfolio and making shrewd decisions that paid off handsomely.\n\nDespite facing occasional setbacks and market fluctuations, Alex remained steadfast in his pursuit of financial success. He learned from his mistakes, honed his trading strategies, and adapted to the ever-changing landscape of the stock market.\n\nAs time went on, Alex became known among his peers as a skilled trader with a knack for spotting lucrative opportunities. His portfolio grew significantly, and he gained the respect of seasoned investors who admired his dedication and passion for the world of finance.\n\nIn the end, Alex's hard work and perseverance paid off, as he achieved his dream of becoming a successful stock trader. With a smile on his face and a sense of accomplishment in his heart, Alex knew that the journey was just beginning, and he was ready to face whatever challenges and triumphs lay ahead in the exciting world of stock trading."
-      }
-    ],
-    "path": "/chat/bVpMruk"
-  },
-  "chat:iarOLl4": {
-    "id": "iarOLl4",
-    "title": "write me a 300 word story",
-    "userId": "123",
-    "createdAt": "2024-03-26T04:12:35.757Z",
-    "messages": [
-      {
-        "id": "CeY0ubF",
-        "role": "user",
-        "content": "write me a 300 word story"
-      },
-      {
-        "id": "IAIvCji",
-        "role": "assistant",
-        "content": "Once upon a time in a vibrant and bustling city, there lived a young artist named Lily. Lily was known for her intricate paintings that captured the beauty and essence of nature. She would spend hours in her small but cozy studio, surrounded by canvases filled with dazzling colors and delicate strokes.\n\nOne day, as Lily was strolling through the city park for inspiration, she stumbled upon an old, dusty book lying under a majestic oak tree. Curiosity sparked in her eyes as she opened the book and discovered that it was filled with mysterious symbols and cryptic messages. Determined to unravel its secrets, Lily decided to delve into the world of ancient art and symbolism.\n\nAs days turned into months, Lily immersed herself in the study of ancient civilizations and their artistic traditions. She visited museums, attended lectures, and even ventured into remote villages to learn from the wise elders. Along the way, she encountered challenges and setbacks, but her passion for art fueled her determination to persevere.\n\nWith each passing day, Lily's paintings began to reflect a newfound depth and wisdom. Her work captured the essence of the ancient symbols she had discovered, creating a bridge between the past and the present. People from far and wide marveled at her art, feeling a sense of connection to something beyond themselves.\n\nIn the end, Lily realized that the true essence of art lies not just in the strokes of a brush, but in the stories it tells and the emotions it evokes. Through her journey of exploration and discovery, Lily found her true calling as an artist—bringing the past to life through the beauty of her creations. And so, the legacy of Lily and her extraordinary artistry lived on, inspiring generations to come."
-      }
-    ],
-    "path": "/chat/iarOLl4"
-  },
-  "chat:RwxtVgK": {
-    "id": "RwxtVgK",
-    "title": "write me a 300 word story",
-    "userId": "123",
-    "createdAt": "2024-03-26T04:21:56.955Z",
-    "messages": [
-      {
-        "id": "eX4WjaT",
-        "role": "user",
-        "content": "write me a 300 word story"
-      },
-      {
-        "id": "pL2IHSw",
-        "role": "assistant",
-        "content": "Once upon a time in a quaint little town nestled among rolling hills and lush greenery, there lived a young boy named Oliver. Oliver was known for his adventurous spirit and insatiable curiosity. One sunny morning, as he wandered through the meadows, he stumbled upon a hidden pathway leading deep into the enchanted forest.\n\nAs Oliver ventured further into the forest, he discovered a magical clearing bathed in shimmering light. In the center of the clearing stood a majestic tree with leaves that sparkled like emeralds. Mesmerized by the tree's beauty, Oliver approached it and placed his hand on its trunk.\n\nTo his astonishment, the tree began to whisper in a gentle, melodic voice. It told Oliver of a long-forgotten tale of friendship, courage, and perseverance. The tree revealed that it was once home to a group of woodland creatures who had been driven away by a fearsome dragon that terrorized the forest.\n\nDetermined to help, Oliver embarked on a quest to seek out the dragon and bring peace back to the forest. Along the way, he encountered wise old owls, mischievous squirrels, and graceful deer who offered their guidance and support.\n\nAfter a series of exciting and challenging adventures, Oliver finally faced the dragon in a fierce battle of wits and bravery. With a heart full of courage and a mind sharp as a sword, Oliver outsmarted the dragon and persuaded it to leave the forest for good.\n\nAs the sun set on the enchanted forest, a sense of tranquility and harmony filled the air. The woodland creatures returned to their home, grateful to Oliver for his bravery and kindness. And as Oliver bid farewell to his newfound friends, he knew that he would always be welcomed in the magical forest, where the whispers of the ancient tree would forever guide him on his adventures."
-      }
-    ],
-    "path": "/chat/RwxtVgK"
-  },
-  "chat:1J8kK8L": {
-    "id": "1J8kK8L",
-    "title": "write me a 300 word story",
-    "userId": "123",
-    "createdAt": "2024-03-26T04:22:11.394Z",
-    "messages": [
-      {
-        "id": "XxTTAnr",
-        "role": "user",
-        "content": "write me a 300 word story"
-      },
-      {
-        "id": "N20zx5H",
-        "role": "assistant",
-        "content": "Once upon a time in a quaint little town nestled between rolling hills and lush forests, there lived a young boy named Oliver. Oliver had always been fascinated by the stars and often spent his nights gazing up at the sky, dreaming of exploring the vast unknown. One fateful night, as he lay on the grass with his telescope, he noticed a peculiar constellation that seemed to be beckoning him.\n\nIntrigued, Oliver followed the alignment of the stars and found himself at the entrance of a hidden cave deep in the woods. With a sense of curiosity and adventure guiding him, he ventured into the mysterious cave, his heart pounding with excitement. Inside, he discovered a dazzling array of crystals that glittered like a thousand stars. Mesmerized by their beauty, Oliver reached out to touch one, and in an instant, he was enveloped in a bright light.\n\nWhen the light faded, Oliver found himself in a celestial realm unlike anything he had ever imagined. The air was filled with the soothing melody of celestial beings, and the ground beneath his feet shimmered with stardust. Before him stood a wise old owl with sparkling eyes, who revealed that Oliver had been chosen to embark on a grand quest to restore balance to the universe.\n\nArmed with courage and determination, Oliver set out on his epic journey, encountering fantastical creatures and overcoming formidable challenges along the way. With each trial he faced, Oliver grew stronger and wiser, learning valuable lessons about courage, friendship, and the power of believing in oneself.\n\nIn the end, Oliver succeeded in his quest, bringing harmony to the celestial realms and earning the admiration of all who dwelled there. As he gazed up at the vast expanse of the night sky, Oliver knew that his adventure was just the beginning of a lifetime filled with wonder and magic. And so, with a heart full of gratitude and a spirit soaring high, Oliver returned to his own world, forever changed by the celestial journey that had guided him to his true destiny."
-      }
-    ],
-    "path": "/chat/1J8kK8L"
+    "path": "/chat/V1XWMV2"
   }
 }
