@@ -1,51 +1,47 @@
 'use client'
 
 import * as React from 'react'
-import Link from 'next/link'
 
-import { cn } from '@/lib/utils'
-// import { auth } from '@/auth'
 import { Button, buttonVariants } from '@/components/ui/button'
-import {
-  IconGitHub,
-  IconNextChat,
-  IconSeparator,
-  IconVercel,
-  IconSettings,
-  IconDownload
-} from '@/components/ui/icons'
-import { UserMenu } from '@/components/user-menu'
+import { IconSettings, IconDownload } from '@/components/ui/icons'
 import { SidebarMobile } from './sidebar-mobile'
 import { SidebarToggle } from './sidebar-toggle'
 import { ChatHistory } from './chat-history'
 import { ModelSelector } from './model-selector'
+import { ModelConfig } from './model-config'
+import { Models } from '@/lib/types'
+
+import { PromptLibrary } from './prompt-library'
 
 interface HeaderProps {
-  models?: any
+  models: Models
 }
 
 export function Header({ models }: HeaderProps) {
   return (
-    <header className="sticky top-0 z-50 flex items-center justify-between w-full h-16 px-4 border-b shrink-0 bg-background ">
+    <header className="sticky top-0 z-50 flex items-center justify-between w-full h-16 px-3 border-b shrink-0 bg-background ">
       <div className="flex items-center">
-        {/* <React.Suspense fallback={<div className="flex-1 overflow-auto" />}> */}
-        <SidebarMobile>
+        <SidebarMobile side="left">
           <ChatHistory />
         </SidebarMobile>
-        <SidebarToggle />
-        <ModelSelector models={models} />
-        {/* </React.Suspense> */}
+        <SidebarToggle side="left" />
+
+        <div className="flex flex-row space-x-2 ml-2">
+          <ModelSelector models={models} />
+          <ModelConfig />
+        </div>
       </div>
 
-      <div className="flex items-center justify-end space-x-2">
-        {/* Settings Button */}
+      {/* space-x-2 */}
+      <div className="flex items-center">
         <Button variant="ghost" size="icon">
           <IconSettings />
         </Button>
-        {/* Install models */}
-        <Button variant="outline" size="icon">
-          <IconDownload />
-        </Button>
+
+        <SidebarMobile side="right">
+          <PromptLibrary />
+        </SidebarMobile>
+        <SidebarToggle side="right" />
       </div>
     </header>
   )

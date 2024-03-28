@@ -17,6 +17,7 @@ import {
 import { useEnterSubmit } from '@/lib/hooks/use-enter-submit'
 import { nanoid } from 'nanoid'
 import { useRouter } from 'next/navigation'
+import { LightningBoltIcon } from '@radix-ui/react-icons'
 
 export function PromptForm({
   input,
@@ -72,16 +73,16 @@ export function PromptForm({
             <Button
               variant="outline"
               size="icon"
-              className="absolute left-0 top-[14px] size-8 rounded-full bg-background p-0 sm:left-4"
-              onClick={() => {
-                router.push('/')
-              }}
+              className="absolute left-0 top-[14px] size-8 rounded-md bg-background p-0 sm:left-4"
+              // onClick={() => {
+              //   router.push('/')
+              // }}
             >
-              <IconPlus />
-              <span className="sr-only">New Chat</span>
+              <LightningBoltIcon />
+              <span className="sr-only">Tools</span>
             </Button>
           </TooltipTrigger>
-          <TooltipContent>New Chat</TooltipContent>
+          <TooltipContent>Tools</TooltipContent>
         </Tooltip>
         <Textarea
           ref={inputRef}

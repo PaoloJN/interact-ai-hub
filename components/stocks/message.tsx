@@ -1,21 +1,23 @@
 'use client'
 
-import { IconOpenAI, IconUser } from '@/components/ui/icons'
+import { IconOpenAI, IconUser, getModelIcon } from '@/components/ui/icons'
 import { cn } from '@/lib/utils'
 import { spinner } from './spinner'
-import { CodeBlock } from '../ui/codeblock'
+import { CodeBlock } from '@/components/ui/codeblock'
 import { MemoizedReactMarkdown } from '../markdown'
 import remarkGfm from 'remark-gfm'
 import remarkMath from 'remark-math'
-import { StreamableValue } from 'ai/rsc'
+import { StreamableValue, useAIState } from 'ai/rsc'
 import { useStreamableText } from '@/lib/hooks/use-streamable-text'
+import { ChatMessageActions } from '../chat-message-actions'
 
 // Different types of message bubbles.
 
 export function UserMessage({ children }: { children: React.ReactNode }) {
   return (
-    <div className="group relative flex items-start md:-ml-12">
-      <div className="flex size-[30px] shrink-0 select-none items-center justify-center rounded-md border bg-background shadow-sm">
+    <div className="group relative flex items-start">
+      {/* shadow-sm" */}
+      <div className="flex size-[30px] shrink-0 select-none items-center justify-center rounded-md border bg-background">
         <IconUser />
       </div>
       <div className="ml-4 flex-1 space-y-2 overflow-hidden pl-2">
@@ -34,10 +36,17 @@ export function BotMessage({
 }) {
   const text = useStreamableText(content)
 
+  const [aiState] = useAIState()
+  const icon = getModelIcon(aiState.model.created_by)
+
+  // TODO: Make chat actions show on hover and copy message
+
   return (
-    <div className={cn('group relative flex items-start md:-ml-12', className)}>
-      <div className="flex size-[28px] shrink-0 select-none items-center justify-center rounded-md  bg-primary text-primary-foreground shadow-sm">
-        <IconOpenAI />
+    <div className={cn('group relative flex items-start', className)}>
+      {/* bg-primary text-primary-foreground shadow-sm */}
+      <div className="flex size-[28px] shrink-0 select-none items-center justify-center rounded-md border bg-background">
+        {/* <IconOpenAI /> */}
+        <span>{icon}</span>
       </div>
       <div className="ml-4 flex-1 space-y-2 overflow-hidden px-1">
         <MemoizedReactMarkdown
@@ -82,6 +91,14 @@ export function BotMessage({
           {text}
         </MemoizedReactMarkdown>
       </div>
+
+      {/* <ChatMessageActions
+        message={{
+          id: '1',
+          role: 'assistant',
+          content: 'Copy Test'
+        }}
+      /> */}
     </div>
   )
 }
@@ -121,10 +138,13 @@ export function SystemMessage({ children }: { children: React.ReactNode }) {
 }
 
 export function SpinnerMessage() {
+  const [aiState] = useAIState()
+  const icon = getModelIcon(aiState.model.created_by)
+
   return (
-    <div className="group relative flex items-start md:-ml-12">
-      <div className="flex size-[24px] shrink-0 select-none items-center justify-center rounded-md border bg-primary text-primary-foreground shadow-sm">
-        <IconOpenAI />
+    <div className="group relative flex items-start">
+      <div className="flex size-[28px] shrink-0 select-none items-center justify-center rounded-md border bg-background">
+        <span>{icon}</span>
       </div>
       <div className="ml-4 h-[24px] flex flex-row items-center flex-1 space-y-2 overflow-hidden px-1">
         {spinner}

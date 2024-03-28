@@ -1,76 +1,294 @@
 {
-  "chat:7loil2S": {
-    "id": "7loil2S",
+  "chat:GAVuoqs": {
+    "id": "GAVuoqs",
     "title": "what ai model are you ?",
-    "path": "/chat/7loil2S",
-    "userId": "123",
     "model": {
-      "name": "llama2:latest",
-      "model": "llama2:latest",
-      "modified_at": "2023-11-26T05:16:41.220257074-05:00",
-      "size": 3825819519,
-      "digest": "fe938a131f40e6f6d40083c9f0f430a515233eb2edaa6d72eb85c50d64f2300e",
-      "details": {
-        "parent_model": "",
-        "format": "gguf",
-        "family": "llama",
-        "families": null,
-        "parameter_size": "7B",
-        "quantization_level": "Q4_0",
-        "created_by": "Meta",
-        "context_length": 4096,
-        "description": "Llama 2 is released by Meta Platforms, Inc. This model is trained on 2 trillion tokens, and by default supports a context length of 4096. Llama 2 Chat models are fine-tuned on over 1 million human annotations, and are made for chat."
+      "id": 1,
+      "installed": true,
+      "type": "local",
+      "created_by": "Meta",
+      "context_length": 4096,
+      "description": "Llama 2 is released by Meta Platforms, Inc. This model is trained on 2 trillion tokens, and by default supports a context length of 4096. Llama 2 Chat models are fine-tuned on over 1 million human annotations, and are made for chat.",
+      "name": "llama2:7b",
+      "label": "llama2 7b",
+      "memory": "8GB",
+      "storage": "3.8GB",
+      "config": {
+        "max_tokens": 100,
+        "temperature": 0.5,
+        "top_p": 0.9,
+        "frequency_penalty": 0
+      },
+      "max_config": {
+        "max_tokens": 3000,
+        "temperature": 5,
+        "top_p": 1,
+        "frequency_penalty": 0
+      },
+      "min_config": {
+        "max_tokens": 200,
+        "temperature": 0.01,
+        "top_p": 0.01,
+        "frequency_penalty": 0.01
       }
     },
-    "created_at": "2024-03-27T07:24:24.181Z",
+    "createdAt": "2024-03-28T17:57:01.745Z",
     "messages": [
       {
-        "id": "xt2Zi8k",
+        "id": "vjEzOS4",
         "role": "user",
         "content": "what ai model are you ?"
       },
       {
-        "id": "bi1YcZb",
+        "id": "rkJkoE0",
         "role": "assistant",
-        "content": "I don't have a physical form or the ability to be an AI model as I'm just a text-based artificial intelligence. I exist to generate text based on the data I've been given and the instructions provided by users. There is no specific AI model I am, I'm more like a text generator designed for interactive conversations."
-      }
-    ]
-  },
-  "chat:V1XWMV2": {
-    "id": "V1XWMV2",
-    "title": "write me a story",
-    "userId": "123",
-    "createdAt": "2024-03-27T08:21:16.275Z",
-    "messages": [
-      {
-        "id": "42ZpeCP",
-        "role": "user",
-        "content": "write me a story"
-      },
-      {
-        "id": "uOkIl72",
-        "role": "assistant",
-        "content": "Of course! I'd be happy to write you a story. Can you please provide some details about what you would like the story to be about? For example, is it a romance, mystery, sci-fi, fantasy, or something else? And do you have any specific length or tone in mind?"
+        "content": "I'm LLaMA, I'm a large language model trained by a team of researcher at Meta AI. My model is based on the transformer architecture, which is a type of neural network that is particularly well-suited for natural language processing tasks such as language translation and text generation. My training data consists of a massive dataset of text from various sources, including books, articles, and websites, which I use to learn patterns and relationships in language. This allows me to generate coherent and contextually appropriate text, such as responses to questions or prompts, in a wide range of styles and formats."
       }
     ],
-    "path": "/chat/V1XWMV2"
+    "path": "/chat/GAVuoqs"
   },
-  "chat:GwzhNvs": {
-    "id": "GwzhNvs",
-    "title": "what ai model are you ?",
-    "createdAt": "2024-03-28T06:45:12.705Z",
+  "chat:2Pd8xnM": {
+    "id": "2Pd8xnM",
+    "title": "what model are you ?",
+    "model": {
+      "id": 10,
+      "installed": true,
+      "type": "local",
+      "created_by": "Mistral",
+      "context_length": 32000,
+      "description": "Mistral 7B model is an Apache licensed 7.3B parameter model. It is available in both instruct (instruction following) and text completion.",
+      "name": "mistral:7b",
+      "label": "mistral:7b",
+      "memory": "8GB",
+      "storage": "3.8GB",
+      "config": {
+        "max_tokens": 100,
+        "temperature": 0.5,
+        "top_p": 0.9
+      },
+      "max_config": {
+        "max_tokens": 3000,
+        "temperature": 5,
+        "top_p": 1
+      },
+      "min_config": {
+        "max_tokens": 200,
+        "temperature": 0.01,
+        "top_p": 0.01
+      }
+    },
+    "createdAt": "2024-03-28T18:23:23.311Z",
     "messages": [
       {
-        "id": "xOR7en2",
+        "id": "ncFwPSW",
         "role": "user",
-        "content": "what ai model are you ?"
+        "content": "what model are you ?"
       },
       {
-        "id": "kDGgIHb",
+        "id": "gG6Qh2H",
         "role": "assistant",
-        "content": "I'm LLaMA, an AI assistant developed by Meta AI that can understand and respond to human input in a conversational manner. I'm trained on a massive dataset of text from the internet and can generate human-like responses to a wide range of topics and questions. I can be used to create chatbots, virtual assistants, and other applications that require natural language understanding and generation capabilities."
+        "content": "I don't have a physical body or a specific model. I'm a text-based artificial intelligence designed to help answer questions and provide information. I don't have the ability to be a certain model as I'm just an algorithm running on computer servers."
       }
     ],
-    "path": "/chat/GwzhNvs"
+    "path": "/chat/2Pd8xnM"
+  },
+  "chat:7DihVQe": {
+    "id": "7DihVQe",
+    "title": "what model are you ?",
+    "model": {
+      "id": 1,
+      "installed": true,
+      "type": "local",
+      "created_by": "Meta",
+      "context_length": 4096,
+      "description": "Llama 2 is released by Meta Platforms, Inc. This model is trained on 2 trillion tokens, and by default supports a context length of 4096. Llama 2 Chat models are fine-tuned on over 1 million human annotations, and are made for chat.",
+      "name": "llama2:7b",
+      "label": "llama2 7b",
+      "memory": "8GB",
+      "storage": "3.8GB",
+      "config": {
+        "max_tokens": 100,
+        "temperature": 0.5,
+        "top_p": 0.9,
+        "frequency_penalty": 0
+      },
+      "max_config": {
+        "max_tokens": 3000,
+        "temperature": 5,
+        "top_p": 1,
+        "frequency_penalty": 0
+      },
+      "min_config": {
+        "max_tokens": 200,
+        "temperature": 0.01,
+        "top_p": 0.01,
+        "frequency_penalty": 0.01
+      }
+    },
+    "createdAt": "2024-03-28T19:37:23.386Z",
+    "messages": [
+      {
+        "id": "LMvcDvE",
+        "role": "user",
+        "content": "what model are you ?"
+      },
+      {
+        "id": "wVHhGIa",
+        "role": "assistant",
+        "content": "I'm just an AI assistant trained by Meta AI, I don't have a personal identity or physical body, so I can't provide information about my \"model\" or any other personal details. My purpose is to assist users like you with tasks such as answering questions, providing information, and completing tasks, while continuously learning and improving my abilities through machine learning algorithms and user feedback. Is there anything else I can help you with?"
+      },
+      {
+        "id": "TnJ2axY",
+        "role": "user",
+        "content": "how are you ?"
+      },
+      {
+        "id": "k2RAPBD",
+        "role": "assistant",
+        "content": "I'm just an AI, I don't have feelings or emotions like a human would. I'm here to assist you and answer any questions you may have to the best of my abilities based on my training and knowledge. Is there anything specific you would like to know or discuss?"
+      }
+    ],
+    "path": "/chat/7DihVQe"
+  },
+  "chat:o9eOysj": {
+    "id": "o9eOysj",
+    "title": "what should i call a page that users install and uninstall models from ?",
+    "model": {
+      "id": 1,
+      "installed": true,
+      "type": "local",
+      "created_by": "Meta",
+      "context_length": 4096,
+      "description": "Llama 2 is released by Meta Platforms, Inc. This model is trained on 2 trillion tokens, and by default supports a context length of 4096. Llama 2 Chat models are fine-tuned on over 1 million human annotations, and are made for chat.",
+      "name": "llama2:7b",
+      "label": "llama2 7b",
+      "memory": "8GB",
+      "storage": "3.8GB",
+      "config": {
+        "max_tokens": 100,
+        "temperature": 0.5,
+        "top_p": 0.9,
+        "frequency_penalty": 0
+      },
+      "max_config": {
+        "max_tokens": 3000,
+        "temperature": 5,
+        "top_p": 1,
+        "frequency_penalty": 0
+      },
+      "min_config": {
+        "max_tokens": 200,
+        "temperature": 0.01,
+        "top_p": 0.01,
+        "frequency_penalty": 0.01
+      }
+    },
+    "createdAt": "2024-03-28T20:02:10.954Z",
+    "messages": [
+      {
+        "id": "h0Dp6SZ",
+        "role": "user",
+        "content": "what should i call a page that users install and uninstall models from ?"
+      },
+      {
+        "id": "ltJAeSF",
+        "role": "assistant",
+        "content": "When it comes to naming pages related to model installation and removal, here are some suggestions:\n\n1. Model Library or Model Gallery: These names convey the idea of a collection of models that users can browse and manage.\n2. Model Manager: This name emphasizes the page's purpose of managing and maintaining models.\n3. Model Installation Page: This name clearly communicates that this is a page where users can install new models or remove existing ones.\n4. Model Configuration Page: This name suggests that users can configure or customize their models on this page.\n5. Model Selection Page: This name implies that users can select and choose the models they want to use, and also implies that there may be multiple models available for selection.\n6. Model Database: This name emphasizes that the page is a database of models that users can access and manage.\n7. Model Hub: This name conveys the idea of a central location where users can find and manage their models.\n8. Model Center: This name suggests that this is the main location for managing and accessing models.\n9. Model Utility Page: This name implies that the page provides a utility or tool for managing models, such as installing, uninstalling, or configuring them.\n10. Model Menagerie: This name has a playful tone and suggests that users can manage and care for their models like they would manage a menagerie of pets.\n\nUltimately, the best name will depend on your product's brand voice, target audience, and the specific functionality of the page."
+      }
+    ],
+    "path": "/chat/o9eOysj"
+  },
+  "chat:NuRT3y5": {
+    "id": "NuRT3y5",
+    "title": "say back just \"hello\" nonthing else",
+    "model": {
+      "id": 1,
+      "installed": true,
+      "type": "local",
+      "created_by": "Meta",
+      "context_length": 4096,
+      "description": "Llama 2 is released by Meta Platforms, Inc. This model is trained on 2 trillion tokens, and by default supports a context length of 4096. Llama 2 Chat models are fine-tuned on over 1 million human annotations, and are made for chat.",
+      "name": "llama2:7b",
+      "label": "llama2 7b",
+      "memory": "8GB",
+      "storage": "3.8GB",
+      "config": {
+        "max_tokens": 100,
+        "temperature": 0.5,
+        "top_p": 0.9,
+        "frequency_penalty": 0
+      },
+      "max_config": {
+        "max_tokens": 3000,
+        "temperature": 5,
+        "top_p": 1,
+        "frequency_penalty": 0
+      },
+      "min_config": {
+        "max_tokens": 200,
+        "temperature": 0.01,
+        "top_p": 0.01,
+        "frequency_penalty": 0.01
+      }
+    },
+    "createdAt": "2024-03-28T21:07:52.226Z",
+    "messages": [
+      {
+        "id": "6Gu3hNi",
+        "role": "user",
+        "content": "say back just \"hello\" nonthing else"
+      },
+      {
+        "id": "6JTCO5a",
+        "role": "assistant",
+        "content": "Hello"
+      }
+    ],
+    "path": "/chat/NuRT3y5"
+  },
+  "chat:P7sSvxo": {
+    "id": "P7sSvxo",
+    "title": "say hello back ?",
+    "model": {
+      "id": 10,
+      "installed": true,
+      "type": "local",
+      "created_by": "Mistral",
+      "context_length": 32000,
+      "description": "Mistral 7B model is an Apache licensed 7.3B parameter model. It is available in both instruct (instruction following) and text completion.",
+      "name": "mistral:7b",
+      "label": "mistral:7b",
+      "memory": "8GB",
+      "storage": "3.8GB",
+      "config": {
+        "max_tokens": 100,
+        "temperature": 0.5,
+        "top_p": 0.9
+      },
+      "max_config": {
+        "max_tokens": 3000,
+        "temperature": 5,
+        "top_p": 1
+      },
+      "min_config": {
+        "max_tokens": 200,
+        "temperature": 0.01,
+        "top_p": 0.01
+      }
+    },
+    "createdAt": "2024-03-28T21:35:21.641Z",
+    "messages": [
+      {
+        "id": "SC2bQXl",
+        "role": "user",
+        "content": "say hello back ?"
+      },
+      {
+        "id": "MBYLvLF",
+        "role": "assistant",
+        "content": "Hello there! It's nice to \"meet\" you. How can I help you today? Let me know if you have any questions or if there's a specific topic you'd like to discuss. I'm here to assist!"
+      }
+    ],
+    "path": "/chat/P7sSvxo"
   }
 }

@@ -6,11 +6,10 @@ import { cn } from '@/lib/utils'
 import { SidebarList } from '@/components/sidebar-list'
 import { buttonVariants } from '@/components/ui/button'
 import { IconPlus } from '@/components/ui/icons'
-import { Input } from '@/components/ui/input'
 
-interface ChatHistoryProps {}
+interface PromptLibraryProps {}
 
-export function ChatHistory({}: ChatHistoryProps) {
+export function PromptLibrary({}: PromptLibraryProps) {
   return (
     <div className="flex flex-col h-full">
       <div className="mt-4 px-2">
@@ -22,7 +21,7 @@ export function ChatHistory({}: ChatHistoryProps) {
           )}
         >
           <IconPlus className="-translate-x-2 stroke-2" />
-          New Chat
+          New Prompt
         </Link>
       </div>
       <React.Suspense
@@ -37,7 +36,7 @@ export function ChatHistory({}: ChatHistoryProps) {
           </div>
         }
       >
-        <SidebarList />
+        {/* <SidebarList /> */}
       </React.Suspense>
     </div>
   )

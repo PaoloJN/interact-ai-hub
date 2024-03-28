@@ -271,7 +271,7 @@
   },
   "mistral:7b": {
     "id": 10,
-    "installed": false,
+    "installed": true,
     "type": "local",
     "created_by": "Mistral",
     "context_length": 32000,

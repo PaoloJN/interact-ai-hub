@@ -4,6 +4,9 @@ import { SidebarItems } from '@/components/sidebar-items'
 import { ThemeToggle } from '@/components/theme-toggle'
 import { cache } from 'react'
 
+import { getAIState, useAIState } from 'ai/rsc'
+import { getModelIcon } from '@/components/ui/icons'
+
 interface SidebarListProps {
   children?: React.ReactNode
 }

@@ -23,21 +23,17 @@ const exampleMessages = [
 
 // export function EmptyScreen({ setInput }: Pick<UseChatHelpers, 'setInput'>) {
 export function EmptyScreen() {
-  // get ai state
   const [aiState] = useAIState()
   const selected = aiState.model
 
   const icon = getModelIcon(selected.created_by)
 
-  // console.log('selected', selected)
-
   return (
-    <div className="mx-auto max-w-2xl px-4 pt-6 md:pt-12">
+    <div className="mx-auto max-w-2xl px-4 pt-6 md:pt-16">
       <Card>
         <div className="px-6 pt-5 text-sm bg-white rounded-t-lg">
-          {/* <CardTitle>Card Title</CardTitle> */}
           <div className="flex items-center">
-            <span>{icon}</span>
+            <span className="mr-2">{icon}</span>
 
             <div className="space-x-1">
               <span className="text-zinc-600">{selected.created_by}</span>
@@ -47,7 +43,6 @@ export function EmptyScreen() {
               </span>
             </div>
           </div>
-          {/* <CardDescription>Card Description</CardDescription> */}
           <div className="mt-4 text-xs text-zinc-500">
             {selected.description}
           </div>
@@ -107,7 +102,7 @@ export function EmptyScreen() {
                   viewBox="0 0 24 24"
                   width="16"
                   aria-hidden="true"
-                  className="w-3 h-3 ml-1"
+                  className="size-3 ml-1"
                 >
                   <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
                   <path d="M15 3h6v6"></path>
@@ -130,7 +125,7 @@ export function EmptyScreen() {
                   viewBox="0 0 24 24"
                   width="16"
                   aria-hidden="true"
-                  className="w-3 h-3 ml-1"
+                  className="size-3 ml-1"
                 >
                   <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
                   <path d="M15 3h6v6"></path>
@@ -154,7 +149,7 @@ export function EmptyScreen() {
                 viewBox="0 0 24 24"
                 width="16"
                 aria-hidden="true"
-                className="w-3 h-3 ml-1"
+                className="size-3 ml-1"
               >
                 <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
                 <path d="M15 3h6v6"></path>
@@ -164,33 +159,6 @@ export function EmptyScreen() {
           </div>
         </div>
       </Card>
-
-      {/* <div className="flex flex-col gap-2 rounded-lg border bg-background p-8">
-        <h1 className="text-lg font-semibold">
-          Welcome to Next.js AI Chatbot!
-        </h1>
-        <p className="leading-normal text-muted-foreground">
-          This is an open source AI chatbot app template built with{' '}
-          <ExternalLink href="https://nextjs.org">Next.js</ExternalLink>, the{' '}
-          <ExternalLink href="https://sdk.vercel.ai">
-            Vercel AI SDK
-          </ExternalLink>
-          , and{' '}
-          <ExternalLink href="https://vercel.com/storage/kv">
-            Vercel KV
-          </ExternalLink>
-          .
-        </p>
-        <p className="leading-normal text-muted-foreground">
-          It uses{' '}
-          <ExternalLink href="https://vercel.com/blog/ai-sdk-3-generative-ui">
-            React Server Components
-          </ExternalLink>{' '}
-          to combine text with generative UI as output of the LLM. The UI state
-          is synced through the SDK so the model is aware of your interactions
-          as they happen.
-        </p>
-      </div> */}
     </div>
   )
 }

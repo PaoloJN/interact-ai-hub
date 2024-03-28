@@ -442,7 +442,7 @@ export const AI = createAI<AIState, UIState>({
   unstable_onSetAIState: async ({ state, done }) => {
     'use server'
 
-    const { chatId, messages } = state
+    const { chatId, messages, model } = state
 
     const createdAt = new Date()
     const path = `/chat/${chatId}`
@@ -451,6 +451,7 @@ export const AI = createAI<AIState, UIState>({
     const chat: Chat = {
       id: chatId,
       title,
+      model: model,
       createdAt,
       messages,
       path

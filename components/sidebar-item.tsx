@@ -8,7 +8,7 @@ import { usePathname } from 'next/navigation'
 import { motion } from 'framer-motion'
 
 import { buttonVariants } from '@/components/ui/button'
-import { IconMessage, IconUsers } from '@/components/ui/icons'
+import { IconMessage, IconUsers, getModelIcon } from '@/components/ui/icons'
 import {
   Tooltip,
   TooltipContent,
@@ -17,6 +17,7 @@ import {
 import { useLocalStorage } from '@/lib/hooks/use-local-storage'
 import { type Chat } from '@/lib/types'
 import { cn } from '@/lib/utils'
+import { useAIState } from 'ai/rsc'
 
 interface SidebarItemProps {
   index: number
@@ -30,6 +31,8 @@ export function SidebarItem({ index, chat, children }: SidebarItemProps) {
   const isActive = pathname === chat.path
   const [newChatId, setNewChatId] = useLocalStorage('newChatId', null)
   const shouldAnimate = index === 0 && isActive && newChatId
+
+  const icon = getModelIcon(chat.model.created_by)
 
   if (!chat?.id) return null
 
@@ -53,7 +56,7 @@ export function SidebarItem({ index, chat, children }: SidebarItemProps) {
         ease: 'easeIn'
       }}
     >
-      <div className="absolute left-2 top-1 flex size-6 items-center justify-center">
+      <div className="absolute left-2 top-[6px] flex size-6 items-center justify-center">
         {chat.sharePath ? (
           <Tooltip delayDuration={1000}>
             <TooltipTrigger
@@ -65,13 +68,14 @@ export function SidebarItem({ index, chat, children }: SidebarItemProps) {
             <TooltipContent>This is a shared chat.</TooltipContent>
           </Tooltip>
         ) : (
-          <IconMessage className="mr-2 mt-1 text-zinc-500" />
+          // <IconMessage className="mr-2 mt-1 text-zinc-500" />
+          <span className="mr-2">{icon}</span>
         )}
       </div>
       <Link
         href={chat.path}
         className={cn(
-          buttonVariants({ variant: 'ghost' }),
+          buttonVariants({ variant: 'outline' }),
           'group w-full px-8 transition-colors hover:bg-zinc-200/40 dark:hover:bg-zinc-300/10',
           isActive && 'bg-zinc-200 pr-16 font-semibold dark:bg-zinc-800'
         )}
