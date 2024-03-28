@@ -1,7 +1,11 @@
 'use client'
 
 import * as React from 'react'
-import { CaretSortIcon, CheckIcon } from '@radix-ui/react-icons'
+import {
+  CaretSortIcon,
+  CheckIcon,
+  MixerHorizontalIcon
+} from '@radix-ui/react-icons'
 import { PopoverProps } from '@radix-ui/react-popover'
 
 import { cn } from '@/lib/utils'
@@ -26,232 +30,29 @@ import {
   PopoverTrigger
 } from '@/components/ui/popover'
 
-import { MetaLlama, Mistral } from '@/components/ui/icons'
-
 import Image from 'next/image'
 import { useAIState } from 'ai/rsc'
+import { IconDownload, getModelIcon } from './ui/icons'
 
-// interface ModelSelectorProps extends PopoverProps {
-//   types: readonly ModelType[]
-//   models: Model[]
-// }
-
-export const types = ['GPT-3', 'Codex'] as const
-
-export type ModelType = (typeof types)[number]
-
-export interface Model<Type = string> {
-  id: string
-  name: string
-  // description: string
-  // strengths?: string
-  // type: Type
+interface ModelSelectorProps {
+  // TODO: add types
+  models: any
 }
 
-export const models: any = [
-  // {
-  //   id: '1',
-  //   name: 'Claude-1',
-  //   family: 'Claude',
-  //   compony: 'Anthropic',
-  //   type: 'Proprietary',
-  //   properties: {
-  //     description:
-  //       'A faster, cheaper yet still very capable version of Claude, which can handle a range of tasks including casual dialogue, text analysis, summarization, and document comprehension.',
-  //     context: '100,000 tokens',
-  //     inputPricing: '$1.63 / million tokens',
-  //     outputPricing: '$5.51 / million tokens'
-  //   }
-  // },
-  // {
-  //   id: '2',
-  //   name: 'Claude-2'
-  // },
-  // {
-  //   id: '3',
-  //   name: 'Claude-3-opus'
-  // },
-  // {
-  //   id: '4',
-  //   name: 'Claude-3-sonnet'
-  // },
-  // {
-  //   id: '5',
-  //   name: 'Claude-3-haiku'
-  // },
-  {
-    id: '6',
-    compony: 'Meta',
-    label: 'llama-v2-7b-chat',
-    name: 'llama2',
-    properties: {
-      description:
-        '7 billion parameter open source model by Meta fine-tuned for chat purposes served by Fireworks. LLaMA v2 was trained on more data (~2 trillion tokens) compared to LLaMA v1 and supports context windows up to 4k tokens.',
-      context: '4,096 tokens',
-      inputPricing: '$0.07 / million tokens',
-      outputPricing: '$0.28 / million tokens'
-    }
-    // icon: (
-    //   <MetaLlama
-    //     width={16}
-    //     height={16}
-    //     className="size-4 align-middle block shrink-0 mr-2"
-    //   />
-    // )
-  },
-  {
-    id: '16',
-    compony: 'Mistral',
-    label: 'mistral',
-    name: 'mistral',
-    properties: {
-      description:
-        'Mistral Small is the ideal choice for simple tasks that one can do in bulk - like Classification, Customer Support, or Text Generation. It offers excellent performance at an affordable price point.',
-      context: '32,000 tokens',
-      inputPricing: '$2.00 / million tokens',
-      outputPricing: '$6.00 / million tokens'
-    }
-    // icon: (
-    //   <Mistral
-    //     width={16}
-    //     height={16}
-    //     className="size-3.5 align-middle block shrink-0 mr-2"
-    //   />
-    // )
-  }
+export function ModelSelector({ models }: ModelSelectorProps) {
+  // @ts-ignore
+  const installed = Object.values(models).filter(model => model.installed)
 
-  // {
-  //   id: '8',
-  //   compony: 'Meta',
-  //   name: 'llama-v2-13b-chat',
-  //   icon: (
-  //     <MetaLlama
-  //       width={16}
-  //       height={16}
-  //       className="size-4 align-middle block shrink-0 mr-2"
-  //     />
-  //   )
-  // },
-  // {
-  //   id: '9',
-  //   compony: 'Meta',
-  //   name: 'llama-v2-70b-chat',
-  //   icon: (
-  //     <MetaLlama
-  //       width={16}
-  //       height={16}
-  //       className="size-4 align-middle block shrink-0 mr-2"
-  //     />
-  //   )
-  // },
-  // {
-  //   id: '10',
-  //   compony: 'Meta',
-  //   name: 'llama-v2-70b-chat-groq',
-  //   icon: (
-  //     <MetaLlama
-  //       width={16}
-  //       height={16}
-  //       className="size-4 align-middle block shrink-0 mr-2"
-  //     />
-  //   )
-  // },
-  // {
-  //   id: '11',
-  //   compony: 'Meta',
-  //   name: 'codelama-34b-instruct',
-  //   icon: (
-  //     <MetaLlama
-  //       width={16}
-  //       height={16}
-  //       className="size-4 align-middle block shrink-0 mr-2"
-  //     />
-  //   )
-  // },
-  // {
-  //   id: '12',
-  //   compony: 'Meta',
-  //   name: 'codelama-70b-instruct',
-  //   icon: (
-  //     <MetaLlama
-  //       width={16}
-  //       height={16}
-  //       className="size-4 align-middle block shrink-0 mr-2"
-  //     />
-  //   )
-  // },
-  // {
-  //   id: '13',
-  //   compony: 'Mistral',
-  //   name: 'mistral-7b-instruct-4k',
-  //   icon: (
-  //     <Mistral
-  //       width={16}
-  //       height={16}
-  //       className="size-3.5 align-middle block shrink-0 mr-2"
-  //     />
-  //   )
-  // },
-  // {
-  //   id: '14',
-  //   compony: 'Mistral',
-  //   name: 'mistral-8x7b',
-  //   icon: (
-  //     <Mistral
-  //       width={16}
-  //       height={16}
-  //       className="size-3.5 align-middle block shrink-0 mr-2"
-  //     />
-  //   )
-  // },
-  // {
-  //   id: '15',
-  //   compony: 'Mistral',
-  //   name: 'mistral-8x7b-groq',
-  //   icon: (
-  //     <Mistral
-  //       width={16}
-  //       height={16}
-  //       className="size-3.5 align-middle block shrink-0 mr-2"
-  //     />
-  //   )
-  // },
-
-  // {
-  //   id: '17',
-  //   compony: 'Mistral',
-  //   name: 'mistral-medium',
-  //   icon: (
-  //     <Mistral
-  //       width={16}
-  //       height={16}
-  //       className="size-3.5 align-middle block shrink-0 mr-2"
-  //     />
-  //   )
-  // },
-  // {
-  //   id: '18',
-  //   compony: 'Mistral',
-  //   name: 'mistral-large',
-  //   icon: (
-  //     <Mistral
-  //       width={16}
-  //       height={16}
-  //       className="size-3.5 align-middle block shrink-0 mr-2"
-  //     />
-  //   )
-  // }
-]
-
-export function ModelSelector() {
   const [open, setOpen] = React.useState(false)
-  const [selectedModel, setSelectedModel] = React.useState<any>(models[0])
-  const [peekedModel, setPeekedModel] = React.useState<any>(models[0])
+  const [selectedModel, setSelectedModel] = React.useState<any>(installed[0])
+  // const [peekedModel, setPeekedModel] = React.useState<any>(models[0])
 
   const [aiState, setAIState] = useAIState()
 
+  const icon = getModelIcon(selectedModel.created_by)
+
   return (
-    <div className="ml-2">
+    <div className="ml-2 space-x-1">
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger asChild>
           <Button
@@ -259,33 +60,51 @@ export function ModelSelector() {
             role="combobox"
             aria-expanded={open}
             aria-label="Select a model"
-            className="w-full justify-between"
+            className="min-w-56 justify-between"
           >
-            {selectedModel && selectedModel.icon}
-            {selectedModel ? (
+            <div className="flex flex-row">
+              <span>{icon}</span>
               <span className="truncate text-xs">
-                {selectedModel.compony} - {selectedModel.label}
+                {selectedModel.created_by} - {selectedModel.label}
               </span>
-            ) : (
-              'Select a model...'
-            )}
+            </div>
+
             <CaretSortIcon className="ml-2 size-4 shrink-0 opacity-50" />
           </Button>
         </PopoverTrigger>
 
-        <PopoverContent align="start" className="w-72 p-0">
+        <PopoverContent align="start" className="w-56 p-0">
           <Command loop>
             <CommandInput placeholder="Search Models..." />
-            <CommandList className="max-h-[300px] overflow-y-auto overflow-x-hidden h-[var(--cmdk-list-height)] md:max-h-[450px] z-50">
+            {/* KEEP: h-[var(--cmdk-list-height)] */}
+            <CommandList className="h-fit max-h-[300px] overflow-y-auto overflow-x-hidden md:max-h-[450px] z-50">
               <CommandEmpty>No Models found.</CommandEmpty>
               {/* <HoverCardTrigger /> */}
-              <CommandGroup>
-                {models.map(model => (
+              <CommandGroup heading="Private AI">
+                {/* @ts-ignore */}
+                {/* {models.map(model => (
                   <ModelItem
                     key={model.id}
                     model={model}
                     isSelected={selectedModel?.id === model.id}
-                    onPeek={model => setPeekedModel(model)}
+                    // onPeek={model => setPeekedModel(model)}
+                    onSelect={() => {
+                      setSelectedModel(model)
+                      // update ai state with selected model
+                      setAIState({ ...aiState, model: model })
+
+                      console.log('client', aiState)
+                      setOpen(false)
+                    }}
+                  />
+                ))} */}
+
+                {installed.map(model => (
+                  <ModelItem
+                    key={model.id}
+                    model={model}
+                    isSelected={selectedModel?.id === model.id}
+                    // onPeek={model => setPeekedModel(model)}
                     onSelect={() => {
                       setSelectedModel(model)
                       // update ai state with selected model
@@ -301,6 +120,10 @@ export function ModelSelector() {
           </Command>
         </PopoverContent>
       </Popover>
+
+      <Button variant="outline" size="icon">
+        <MixerHorizontalIcon />
+      </Button>
     </div>
   )
 }
@@ -309,30 +132,32 @@ interface ModelItemProps {
   model: any
   isSelected: boolean
   onSelect: () => void
-  onPeek: (model: Model) => void
+  // onPeek: (model: any) => void
 }
 
-function ModelItem({ model, isSelected, onSelect, onPeek }: ModelItemProps) {
-  const ref = React.useRef<HTMLDivElement>(null)
+function ModelItem({ model, isSelected, onSelect }: ModelItemProps) {
+  // const ref = React.useRef<HTMLDivElement>(null)
 
-  useMutationObserver(ref, mutations => {
-    for (const mutation of mutations) {
-      if (mutation.type === 'attributes') {
-        if (mutation.attributeName === 'aria-selected') {
-          onPeek(model)
-        }
-      }
-    }
-  })
+  // useMutationObserver(ref, mutations => {
+  //   for (const mutation of mutations) {
+  //     if (mutation.type === 'attributes') {
+  //       if (mutation.attributeName === 'aria-selected') {
+  //         onPeek(model)
+  //       }
+  //     }
+  //   }
+  // })
+
+  const icon = getModelIcon(model.created_by)
 
   return (
     <CommandItem
       key={model.id}
       onSelect={onSelect}
-      ref={ref}
+      // ref={ref}
       className="text-xs aria-selected:bg-zinc-100 aria-selected:text-black"
     >
-      {model.icon}
+      <span>{icon}</span>
       <span className="truncate max-w-[200px] @sm:max-w-[300px] text-xs">
         {model.name}
       </span>

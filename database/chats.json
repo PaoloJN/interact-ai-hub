@@ -54,5 +54,23 @@
       }
     ],
     "path": "/chat/V1XWMV2"
+  },
+  "chat:GwzhNvs": {
+    "id": "GwzhNvs",
+    "title": "what ai model are you ?",
+    "createdAt": "2024-03-28T06:45:12.705Z",
+    "messages": [
+      {
+        "id": "xOR7en2",
+        "role": "user",
+        "content": "what ai model are you ?"
+      },
+      {
+        "id": "kDGgIHb",
+        "role": "assistant",
+        "content": "I'm LLaMA, an AI assistant developed by Meta AI that can understand and respond to human input in a conversational manner. I'm trained on a massive dataset of text from the internet and can generate human-like responses to a wide range of topics and questions. I can be used to create chatbots, virtual assistants, and other applications that require natural language understanding and generation capabilities."
+      }
+    ],
+    "path": "/chat/GwzhNvs"
   }
 }

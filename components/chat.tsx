@@ -17,10 +17,10 @@ import { Header } from './header'
 export interface ChatProps extends React.ComponentProps<'div'> {
   initialMessages?: Message[]
   id?: string
-  session?: Session
+  models?: any
 }
 
-export function Chat({ id, className, session }: ChatProps) {
+export function Chat({ id, className, models }: ChatProps) {
   const router = useRouter()
   const path = usePathname()
   const [input, setInput] = useState('')
@@ -30,12 +30,10 @@ export function Chat({ id, className, session }: ChatProps) {
   const [_, setNewChatId] = useLocalStorage('newChatId', id)
 
   useEffect(() => {
-    if (session?.user) {
-      if (!path.includes('chat') && messages.length === 1) {
-        window.history.replaceState({}, '', `/chat/${id}`)
-      }
+    if (!path.includes('chat') && messages.length === 1) {
+      window.history.replaceState({}, '', `/chat/${id}`)
     }
-  }, [id, path, session?.user, messages])
+  }, [id, path, messages])
 
   useEffect(() => {
     const messagesLength = aiState.messages?.length
@@ -47,8 +45,8 @@ export function Chat({ id, className, session }: ChatProps) {
   useEffect(() => {
     setNewChatId(id)
     // print ai state
-    console.log('Client AI State')
-    console.log(aiState)
+    // console.log('Client AI State')
+    // console.log(aiState)
   })
 
   const { messagesRef, scrollRef, visibilityRef, isAtBottom, scrollToBottom } =
@@ -59,17 +57,13 @@ export function Chat({ id, className, session }: ChatProps) {
       className="group w-full overflow-auto duration-300 ease-in-out pl-0 peer-[[data-state=open]]:lg:pl-[250px] peer-[[data-state=open]]:xl:pl-[300px] no-scrollbar"
       ref={scrollRef}
     >
-      <Header />
+      <Header models={models} />
       <div
         // className={cn('pb-[200px] pt-6 md:pt-12', className)}
         className={cn('pb-[200px]', className)}
         ref={messagesRef}
       >
-        {messages.length ? (
-          <ChatList messages={messages} isShared={false} session={session} />
-        ) : (
-          <EmptyScreen />
-        )}
+        {messages.length ? <ChatList messages={messages} /> : <EmptyScreen />}
         <div className="h-px w-full" ref={visibilityRef} />
       </div>
       <ChatPanel

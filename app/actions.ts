@@ -4,20 +4,19 @@
 
 import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
-import { readDatabase, writeDatabase } from '@/database/functions'
+import {
+  readDatabase,
+  writeDatabase,
+  readDatabaseModels,
+  writeDatabaseModels
+} from '@/database/functions'
 
 import { type Chat } from '@/lib/types'
 
-const userId = '123'
-
-export async function getChats(userId?: string | null): Promise<Chat[]> {
-  if (!userId) {
-    return []
-  }
-
+export async function getChats(): Promise<Chat[]> {
   try {
     const allChats = await readDatabase()
-    const chats = Object.values(allChats).filter(chat => chat.userId === userId)
+    const chats = Object.values(allChats)
     return chats as Chat[]
   } catch (error) {
     console.error('Error getting chats:', error)
@@ -25,18 +24,11 @@ export async function getChats(userId?: string | null): Promise<Chat[]> {
   }
 }
 
-export async function getChat(
-  id: string,
-  userId: string
-): Promise<Chat | null> {
+export async function getChat(id: string): Promise<Chat | null> {
   try {
     const chats = await readDatabase()
     const chatKey = `chat:${id}` // Construct the correct key
     const chat = chats[chatKey] // Use the constructed key to access the chat
-
-    if (!chat || (userId && chat.userId !== userId)) {
-      return null
-    }
 
     return chat
   } catch (error) {
@@ -46,22 +38,10 @@ export async function getChat(
 }
 
 export async function removeChat({ id, path }: { id: string; path: string }) {
-  if (!userId) {
-    return {
-      error: 'Unauthorized'
-    }
-  }
-
   try {
     const chats = await readDatabase()
     const chatKey = `chat:${id}` // Construct the correct key
     const chat = chats[chatKey] // Use the constructed key to access the chat
-
-    if (!chat || chat.userId !== userId) {
-      return {
-        error: 'Unauthorized'
-      }
-    }
 
     delete chats[chatKey] // Delete using the correct key
     await writeDatabase(chats)
@@ -76,17 +56,9 @@ export async function removeChat({ id, path }: { id: string; path: string }) {
 }
 
 export async function clearChats() {
-  if (!userId) {
-    return {
-      error: 'Unauthorized'
-    }
-  }
-
   try {
     const chats = await readDatabase()
-    const userChats = Object.values(chats).filter(
-      chat => chat.userId === userId
-    )
+    const userChats = Object.values(chats)
 
     if (userChats.length === 0) {
       return redirect('/')
@@ -109,57 +81,71 @@ export async function clearChats() {
   }
 }
 
-// export async function saveChat(chat: Chat) {
-//   const session = await auth()
-
-//   if (session && session.user) {
-//     const pipeline = kv.pipeline()
-//     pipeline.hmset(`chat:${chat.id}`, chat)
-//     pipeline.zadd(`user:chat:${chat.userId}`, {
-//       score: Date.now(),
-//       member: `chat:${chat.id}`
-//     })
-//     await pipeline.exec()
-//   } else {
-//     return
-//   }
-// }
-
-// convert saveChat to use json
 export async function saveChat(chat: Chat) {
-  const session = {
-    user: {
-      id: '123',
-      email: ''
+  const chats = await readDatabase()
+  chats[`chat:${chat.id}`] = chat
+  await writeDatabase(chats)
+}
+
+//  ********************** OLLAMA **********************
+
+const OLLAMA_URL = 'http://localhost:11434'
+
+export async function isOllamaAvailable() {
+  try {
+    const data = await fetch(OLLAMA_URL)
+    return data.ok
+  } catch (error) {
+    console.error('Error checking OLLAMA:', error)
+    return false
+  }
+}
+
+// create a sync function to sync installed models with supported models by getting installed models and then updating the supported models installed field to true.
+
+export async function getOllamaModels() {
+  const res = await fetch('http://localhost:11434/api/tags', {
+    cache: 'no-store'
+  })
+  const data = await res.json()
+
+  console.log(data)
+  return data
+}
+
+export async function getModelsList() {
+  const models = await readDatabaseModels()
+  return models
+}
+
+// TODO: Handle unsupported models
+export async function syncModels(ollama_models: any) {
+  let models = await getModelsList()
+  // @ts-ignore
+  const installedModelNames = ollama_models.models.map(model => model.name)
+
+  for (let modelName in models) {
+    if (installedModelNames.includes(modelName)) {
+      models[modelName].installed = true
     }
   }
 
-  if (session && session.user) {
-    const chats = await readDatabase()
-    chats[`chat:${chat.id}`] = chat
-    await writeDatabase(chats)
-  } else {
-    return
-  }
+  await writeDatabaseModels(models)
+  return 'Models synced successfully'
 }
 
-// TODO: See What does this function do ?
-export async function refreshHistory(path: string) {
-  redirect(path)
+// get installed models
+export async function getInstalled() {
+  const models = await readDatabaseModels()
+  // filter out models with installed field set to true
+  const installed = Object.values(models).filter(model => model.installed)
+  return installed
 }
 
-// TODO: See What does this function do ?
-export async function getMissingKeys() {
-  const keysRequired = ['OPENAI_API_KEY']
-  return keysRequired
-    .map(key => (process.env[key] ? '' : key))
-    .filter(key => key !== '')
+// get uninstalled models
+export async function getUninstalled() {
+  const models = await readDatabaseModels()
+  // filter out models with installed field set to false
+  const uninstalled = Object.values(models).filter(model => !model.installed)
+  return uninstalled
 }
-
-// // Get installed models and check if env variables are set for OpenAI
-// export async function getSupportedModels() {
-//   // call api/tags to get all models
-//   const res = await fetch('http://localhost:3000/api/tags')
-//   const models = await res.body()
-//   return models
-// }

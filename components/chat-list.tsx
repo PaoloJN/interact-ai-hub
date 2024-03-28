@@ -6,11 +6,9 @@ import { ExclamationTriangleIcon } from '@radix-ui/react-icons'
 
 export interface ChatList {
   messages: UIState
-  session?: Session
-  isShared: boolean
 }
 
-export function ChatList({ messages, session, isShared }: ChatList) {
+export function ChatList({ messages }: ChatList) {
   if (!messages.length) {
     return null
   }

@@ -5,18 +5,17 @@ import { ThemeToggle } from '@/components/theme-toggle'
 import { cache } from 'react'
 
 interface SidebarListProps {
-  userId?: string
   children?: React.ReactNode
 }
 
-const loadChats = cache(async (userId?: string) => {
-  const chats = await getChats(userId)
+const loadChats = cache(async () => {
+  const chats = await getChats()
   // reverse the order of chats; display the most recent chat first / animate the most recent chat first
   return chats?.reverse()
 })
 
-export async function SidebarList({ userId }: SidebarListProps) {
-  const chats = await loadChats(userId)
+export async function SidebarList({}: SidebarListProps) {
+  const chats = await loadChats()
 
   return (
     <div className="flex flex-1 flex-col overflow-hidden">

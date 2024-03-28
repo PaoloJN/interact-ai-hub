@@ -1,0 +1,449 @@
+{
+  "llama2:7b": {
+    "id": 1,
+    "installed": true,
+    "type": "local",
+    "created_by": "Meta",
+    "context_length": 4096,
+    "description": "Llama 2 is released by Meta Platforms, Inc. This model is trained on 2 trillion tokens, and by default supports a context length of 4096. Llama 2 Chat models are fine-tuned on over 1 million human annotations, and are made for chat.",
+    "name": "llama2:7b",
+    "label": "llama2 7b",
+    "memory": "8GB",
+    "storage": "3.8GB",
+    "config": {
+      "max_tokens": 100,
+      "temperature": 0.5,
+      "top_p": 0.9,
+      "frequency_penalty": 0
+    },
+    "max_config": {
+      "max_tokens": 3000,
+      "temperature": 5,
+      "top_p": 1,
+      "frequency_penalty": 0
+    },
+    "min_config": {
+      "max_tokens": 200,
+      "temperature": 0.01,
+      "top_p": 0.01,
+      "frequency_penalty": 0.01
+    }
+  },
+  "llama2:13b": {
+    "id": 2,
+    "installed": false,
+    "type": "local",
+    "created_by": "Meta",
+    "context_length": 4096,
+    "description": "Llama 2 is released by Meta Platforms, Inc. This model is trained on 2 trillion tokens, and by default supports a context length of 4096. Llama 2 Chat models are fine-tuned on over 1 million human annotations, and are made for chat.",
+    "name": "llama2:13b",
+    "label": "llama2 13b",
+    "memory": "16GB",
+    "storage": "7.4GB",
+    "config": {
+      "max_tokens": 100,
+      "temperature": 0.5,
+      "top_p": 0.9,
+      "frequency_penalty": 0
+    },
+    "max_config": {
+      "max_tokens": 3000,
+      "temperature": 5,
+      "top_p": 1,
+      "frequency_penalty": 0
+    },
+    "min_config": {
+      "max_tokens": 200,
+      "temperature": 0.01,
+      "top_p": 0.01,
+      "frequency_penalty": 0.01
+    }
+  },
+  "llama2:70b": {
+    "id": 3,
+    "installed": false,
+    "type": "local",
+    "created_by": "Meta",
+    "context_length": 4096,
+    "description": "Llama 2 is released by Meta Platforms, Inc. This model is trained on 2 trillion tokens, and by default supports a context length of 4096. Llama 2 Chat models are fine-tuned on over 1 million human annotations, and are made for chat.",
+    "name": "llama2:70b",
+    "label": "llama2 70b",
+    "memory": "64GB",
+    "storage": "39GB",
+    "config": {
+      "max_tokens": 100,
+      "temperature": 0.5,
+      "top_p": 0.9,
+      "frequency_penalty": 0
+    },
+    "max_config": {
+      "max_tokens": 3000,
+      "temperature": 5,
+      "top_p": 1,
+      "frequency_penalty": 0
+    },
+    "min_config": {
+      "max_tokens": 200,
+      "temperature": 0.01,
+      "top_p": 0.01,
+      "frequency_penalty": 0.01
+    }
+  },
+  "llama2:chat": {
+    "id": 4,
+    "installed": false,
+    "type": "local",
+    "created_by": "Meta",
+    "context_length": 4096,
+    "description": "Llama 2 is released by Meta Platforms, Inc. This model is trained on 2 trillion tokens, and by default supports a context length of 4096. Llama 2 Chat models are fine-tuned on over 1 million human annotations, and are made for chat.",
+    "name": "llama2:chat",
+    "label": "llama2 chat",
+    "memory": "8GB",
+    "storage": "3.8GB",
+    "config": {
+      "max_tokens": 100,
+      "temperature": 0.5,
+      "top_p": 0.9,
+      "frequency_penalty": 0
+    },
+    "max_config": {
+      "max_tokens": 3000,
+      "temperature": 5,
+      "top_p": 1,
+      "frequency_penalty": 0
+    },
+    "min_config": {
+      "max_tokens": 200,
+      "temperature": 0.01,
+      "top_p": 0.01,
+      "frequency_penalty": 0.01
+    }
+  },
+  "llama2:13b-chat": {
+    "id": 5,
+    "installed": false,
+    "type": "local",
+    "created_by": "Meta",
+    "context_length": 4096,
+    "description": "Llama 2 is released by Meta Platforms, Inc. This model is trained on 2 trillion tokens, and by default supports a context length of 4096. Llama 2 Chat models are fine-tuned on over 1 million human annotations, and are made for chat.",
+    "name": "llama2:13b-chat",
+    "label": "llama2 13b-chat",
+    "memory": "16GB",
+    "storage": "7.4GB",
+    "config": {
+      "max_tokens": 100,
+      "temperature": 0.5,
+      "top_p": 0.9,
+      "frequency_penalty": 0
+    },
+    "max_config": {
+      "max_tokens": 3000,
+      "temperature": 5,
+      "top_p": 1,
+      "frequency_penalty": 0
+    },
+    "min_config": {
+      "max_tokens": 200,
+      "temperature": 0.01,
+      "top_p": 0.01,
+      "frequency_penalty": 0.01
+    }
+  },
+  "llama2:uncensored:7b": {
+    "id": 6,
+    "installed": false,
+    "type": "local",
+    "created_by": "Meta",
+    "context_length": 4096,
+    "description": "Llama 2 Uncensored is based on Meta’s Llama 2 model, and was created by George Sung and Jarrad",
+    "name": "llama2-uncensored:7b",
+    "label": "llama2-uncensored:7b",
+    "memory": "8GB",
+    "storage": "3.8GB",
+    "config": {
+      "max_tokens": 100,
+      "temperature": 0.5,
+      "top_p": 0.9,
+      "frequency_penalty": 0
+    },
+    "max_config": {
+      "max_tokens": 3000,
+      "temperature": 5,
+      "top_p": 1,
+      "frequency_penalty": 0
+    },
+    "min_config": {
+      "max_tokens": 200,
+      "temperature": 0.01,
+      "top_p": 0.01,
+      "frequency_penalty": 0.01
+    }
+  },
+  "codellama:7b": {
+    "id": 7,
+    "installed": false,
+    "type": "local",
+    "created_by": "Meta",
+    "context_length": 16384,
+    "description": "Code Llama is a model for generating and discussing code, built on top of Llama 2. It’s designed to make workflows faster and efficient for developers and make it easier for people to learn how to code. It can generate both code and natural language about code. Code Llama supports many of the most popular programming languages used today, including Python, C++, Java, PHP, Typescript (Javascript), C#, Bash and more.",
+    "name": "codellama:7b",
+    "label": "codellama:7b",
+    "memory": "8GB",
+    "storage": "3.8GB",
+    "config": {
+      "max_tokens": 100,
+      "temperature": 0.5,
+      "top_p": 0.9,
+      "frequency_penalty": 0
+    },
+    "max_config": {
+      "max_tokens": 16384,
+      "temperature": 5,
+      "top_p": 1,
+      "frequency_penalty": 0
+    },
+    "min_config": {
+      "max_tokens": 200,
+      "temperature": 0.01,
+      "top_p": 0.01,
+      "frequency_penalty": 0.01
+    }
+  },
+  "codellama:13b": {
+    "id": 8,
+    "installed": false,
+    "type": "local",
+    "created_by": "Meta",
+    "context_length": 16384,
+    "description": "Code Llama is a model for generating and discussing code, built on top of Llama 2. It’s designed to make workflows faster and efficient for developers and make it easier for people to learn how to code. It can generate both code and natural language about code. Code Llama supports many of the most popular programming languages used today, including Python, C++, Java, PHP, Typescript (Javascript), C#, Bash and more.",
+    "name": "codellama:13b",
+    "label": "codellama:13b",
+    "memory": "16GB",
+    "storage": "7.4GB",
+    "config": {
+      "max_tokens": 100,
+      "temperature": 0.5,
+      "top_p": 0.9,
+      "frequency_penalty": 0
+    },
+    "max_config": {
+      "max_tokens": 16384,
+      "temperature": 5,
+      "top_p": 1,
+      "frequency_penalty": 0
+    },
+    "min_config": {
+      "max_tokens": 200,
+      "temperature": 0.01,
+      "top_p": 0.01,
+      "frequency_penalty": 0.01
+    }
+  },
+  "codellama:python": {
+    "id": 9,
+    "installed": false,
+    "type": "local",
+    "created_by": "Meta",
+    "context_length": 16384,
+    "description": "Code Llama is a model for generating and discussing code, built on top of Llama 2. It’s designed to make workflows faster and efficient for developers and make it easier for people to learn how to code. It can generate both code and natural language about code. Code Llama supports many of the most popular programming languages used today, including Python, C++, Java, PHP, Typescript (Javascript), C#, Bash and more.",
+    "name": "codellama:python",
+    "label": "codellama:python",
+    "memory": "8GB",
+    "storage": "3.8GB",
+    "config": {
+      "max_tokens": 100,
+      "temperature": 0.5,
+      "top_p": 0.9,
+      "frequency_penalty": 0
+    },
+    "max_config": {
+      "max_tokens": 16384,
+      "temperature": 5,
+      "top_p": 1,
+      "frequency_penalty": 0
+    },
+    "min_config": {
+      "max_tokens": 200,
+      "temperature": 0.01,
+      "top_p": 0.01,
+      "frequency_penalty": 0.01
+    }
+  },
+  "mistral:7b": {
+    "id": 10,
+    "installed": false,
+    "type": "local",
+    "created_by": "Mistral",
+    "context_length": 32000,
+    "description": "Mistral 7B model is an Apache licensed 7.3B parameter model. It is available in both instruct (instruction following) and text completion.",
+    "name": "mistral:7b",
+    "label": "mistral:7b",
+    "memory": "8GB",
+    "storage": "3.8GB",
+    "config": {
+      "max_tokens": 100,
+      "temperature": 0.5,
+      "top_p": 0.9
+    },
+    "max_config": {
+      "max_tokens": 3000,
+      "temperature": 5,
+      "top_p": 1
+    },
+    "min_config": {
+      "max_tokens": 200,
+      "temperature": 0.01,
+      "top_p": 0.01
+    }
+  },
+  "mixtral:8x7b": {
+    "id": 11,
+    "installed": false,
+    "type": "local",
+    "created_by": "Mistral",
+    "context_length": 4096,
+    "description": "The Mixtral-8x7B Large Language Model (LLM) is a pretrained generative Sparse Mixture of Experts. It outperforms Llama 2 70B on many benchmarks. As of December 2023, it is the strongest open-weight model with a permissive license and the best model overall regarding cost/performance trade-offs.",
+    "name": "mixtral:8x7b",
+    "label": "mixtral:8x7b",
+    "memory": "48GB",
+    "storage": "26GB",
+    "config": {
+      "max_tokens": 100,
+      "temperature": 0.5,
+      "top_p": 0.9,
+      "frequency_penalty": 0
+    },
+    "max_config": {
+      "max_tokens": 3000,
+      "temperature": 5,
+      "top_p": 1,
+      "frequency_penalty": 0
+    },
+    "min_config": {
+      "max_tokens": 200,
+      "temperature": 0.01,
+      "top_p": 0.01,
+      "frequency_penalty": 0.01
+    }
+  },
+  "gemma:7b": {
+    "id": 12,
+    "installed": false,
+    "type": "local",
+    "created_by": "Google",
+    "context_length": 4096,
+    "description": "Gemma, by Google DeepMind, is a family of lightweight, state-of-the-art open models built by Google DeepMind",
+    "name": "gemma:7b",
+    "label": "gemma:7b",
+    "memory": "8GB",
+    "storage": "5.2GB",
+    "config": {
+      "max_tokens": 100,
+      "temperature": 0.5,
+      "top_p": 0.9,
+      "frequency_penalty": 0
+    },
+    "max_config": {
+      "max_tokens": 3000,
+      "temperature": 5,
+      "top_p": 1,
+      "frequency_penalty": 0
+    },
+    "min_config": {
+      "max_tokens": 200,
+      "temperature": 0.01,
+      "top_p": 0.01,
+      "frequency_penalty": 0.01
+    }
+  },
+  "llava:7b": {
+    "id": 13,
+    "installed": false,
+    "type": "local",
+    "created_by": "LLaVA",
+    "context_length": 4096,
+    "description": "LLaVA is a multimodal model that combines a vision encoder and Vicuna for general-purpose visual and language understanding, achieving impressive chat capabilities mimicking spirits of the multimodal GPT-4.",
+    "name": "llava:7b",
+    "label": "llava:7b",
+    "memory": "8GB",
+    "storage": "4.7GB",
+    "config": {
+      "max_tokens": 100,
+      "temperature": 0.5,
+      "top_p": 0.9,
+      "frequency_penalty": 0
+    },
+    "max_config": {
+      "max_tokens": 3000,
+      "temperature": 5,
+      "top_p": 1,
+      "frequency_penalty": 0
+    },
+    "min_config": {
+      "max_tokens": 200,
+      "temperature": 0.01,
+      "top_p": 0.01,
+      "frequency_penalty": 0.01
+    }
+  },
+  "llava:13b": {
+    "id": 13,
+    "installed": false,
+    "type": "local",
+    "created_by": "LLaVA",
+    "context_length": 4096,
+    "description": "LLaVA is a multimodal model that combines a vision encoder and Vicuna for general-purpose visual and language understanding, achieving impressive chat capabilities mimicking spirits of the multimodal GPT-4.",
+    "name": "llava:13b",
+    "label": "llava:13b",
+    "memory": "8GB",
+    "storage": "4.7GB",
+    "config": {
+      "max_tokens": 100,
+      "temperature": 0.5,
+      "top_p": 0.9,
+      "frequency_penalty": 0
+    },
+    "max_config": {
+      "max_tokens": 3000,
+      "temperature": 5,
+      "top_p": 1,
+      "frequency_penalty": 0
+    },
+    "min_config": {
+      "max_tokens": 200,
+      "temperature": 0.01,
+      "top_p": 0.01,
+      "frequency_penalty": 0.01
+    }
+  },
+  "llava:34b": {
+    "id": 14,
+    "installed": false,
+    "type": "local",
+    "created_by": "LLaVA",
+    "context_length": 4096,
+    "description": "LLaVA is a multimodal model that combines a vision encoder and Vicuna for general-purpose visual and language understanding, achieving impressive chat capabilities mimicking spirits of the multimodal GPT-4.",
+    "name": "llava:34b",
+    "label": "llava:34b",
+    "memory": "8GB",
+    "storage": "4.7GB",
+    "config": {
+      "max_tokens": 100,
+      "temperature": 0.5,
+      "top_p": 0.9,
+      "frequency_penalty": 0
+    },
+    "max_config": {
+      "max_tokens": 3000,
+      "temperature": 5,
+      "top_p": 1,
+      "frequency_penalty": 0
+    },
+    "min_config": {
+      "max_tokens": 200,
+      "temperature": 0.01,
+      "top_p": 0.01,
+      "frequency_penalty": 0.01
+    }
+  }
+}

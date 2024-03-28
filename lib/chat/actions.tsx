@@ -431,55 +431,32 @@ export const AI = createAI<AIState, UIState>({
   unstable_onGetUIState: async () => {
     'use server'
 
-    const session = {
-      user: {
-        id: '123',
-        email: ''
-      }
-    }
+    const aiState = getAIState()
 
-    if (session && session.user) {
-      const aiState = getAIState()
-
-      if (aiState) {
-        const uiState = getUIStateFromAIState(aiState)
-        return uiState
-      }
-    } else {
-      return
+    if (aiState) {
+      const uiState = getUIStateFromAIState(aiState)
+      return uiState
     }
   },
 
   unstable_onSetAIState: async ({ state, done }) => {
     'use server'
 
-    const session = {
-      user: {
-        id: '123',
-        email: ''
-      }
+    const { chatId, messages } = state
+
+    const createdAt = new Date()
+    const path = `/chat/${chatId}`
+    const title = messages[0].content.substring(0, 100)
+
+    const chat: Chat = {
+      id: chatId,
+      title,
+      createdAt,
+      messages,
+      path
     }
-    if (session && session.user) {
-      const { chatId, messages } = state
 
-      const createdAt = new Date()
-      const userId = session.user.id as string
-      const path = `/chat/${chatId}`
-      const title = messages[0].content.substring(0, 100)
-
-      const chat: Chat = {
-        id: chatId,
-        title,
-        userId,
-        createdAt,
-        messages,
-        path
-      }
-
-      await saveChat(chat)
-    } else {
-      return
-    }
+    await saveChat(chat)
   }
 })
 

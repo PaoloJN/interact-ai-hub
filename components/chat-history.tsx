@@ -7,11 +7,9 @@ import { SidebarList } from '@/components/sidebar-list'
 import { buttonVariants } from '@/components/ui/button'
 import { IconPlus } from '@/components/ui/icons'
 
-interface ChatHistoryProps {
-  userId?: string
-}
+interface ChatHistoryProps {}
 
-export function ChatHistory({ userId }: ChatHistoryProps) {
+export function ChatHistory({}: ChatHistoryProps) {
   return (
     <div className="flex flex-col h-full">
       <div className="mt-4 px-2">
@@ -39,7 +37,7 @@ export function ChatHistory({ userId }: ChatHistoryProps) {
         }
       >
         {/* @ts-ignore */}
-        <SidebarList userId={userId} />
+        <SidebarList />
       </React.Suspense>
     </div>
   )

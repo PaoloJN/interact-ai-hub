@@ -2,7 +2,7 @@ import { UseChatHelpers } from 'ai/react'
 
 import { Button } from '@/components/ui/button'
 import { ExternalLink } from '@/components/external-link'
-import { IconArrowRight } from '@/components/ui/icons'
+import { IconArrowRight, getModelIcon } from '@/components/ui/icons'
 import { Card, CardContent } from '@/components/ui/card'
 import { useAIState } from 'ai/rsc'
 
@@ -27,16 +27,20 @@ export function EmptyScreen() {
   const [aiState] = useAIState()
   const selected = aiState.model
 
+  const icon = getModelIcon(selected.created_by)
+
+  // console.log('selected', selected)
+
   return (
     <div className="mx-auto max-w-2xl px-4 pt-6 md:pt-12">
       <Card>
         <div className="px-6 pt-5 text-sm bg-white rounded-t-lg">
           {/* <CardTitle>Card Title</CardTitle> */}
           <div className="flex items-center">
-            {/* {selected.icon} */}
+            <span>{icon}</span>
 
             <div className="space-x-1">
-              <span className="text-zinc-600">{selected.compony}</span>
+              <span className="text-zinc-600">{selected.created_by}</span>
               <span className="text-zinc-400">/</span>
               <span className="font-medium text-zinc-900">
                 {selected.label}
@@ -45,26 +49,26 @@ export function EmptyScreen() {
           </div>
           {/* <CardDescription>Card Description</CardDescription> */}
           <div className="mt-4 text-xs text-zinc-500">
-            {selected.properties.description}
+            {selected.description}
           </div>
         </div>
         <CardContent className="px-6 py-5 text-xs bg-white divide-y">
           <div className="flex items-start py-3">
             <div className="font-medium w-28">Context</div>
             <div className="flex-1 text-zinc-600">
-              {selected.properties.context} tokens
+              {/* {selected.properties.context} tokens */}
             </div>
           </div>
           <div className="flex items-start py-3">
             <div className="font-medium w-28">Input Pricing</div>
             <div className="flex-1 text-zinc-600">
-              {selected.properties.inputPricing}
+              {/* {selected.properties.inputPricing} */}
             </div>
           </div>
           <div className="flex items-start py-3">
             <div className="font-medium w-28">Output Pricing</div>
             <div className="flex-1 text-zinc-600">
-              {selected.properties.outputPricing}
+              {/* {selected.properties.outputPricing} */}
             </div>
           </div>
           {/* <p className="leading-normal text-muted-foreground">

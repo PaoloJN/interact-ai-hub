@@ -757,6 +757,18 @@ function Mistral({ className, ...props }: React.ComponentProps<'svg'>) {
   )
 }
 
+// get model icon by name
+function getModelIcon(name: string) {
+  switch (name) {
+    case 'Meta':
+      return <MetaLlama className="size-4 mr-2" />
+    case 'Mistral':
+      return <Mistral />
+    default:
+      return <MetaLlama />
+  }
+}
+
 export {
   IconEdit,
   IconNextChat,
@@ -787,6 +799,5 @@ export {
   IconExternalLink,
   IconChevronUpDown,
   ArrowUpFromLine,
-  MetaLlama,
-  Mistral
+  getModelIcon
 }
