@@ -290,5 +290,101 @@
       }
     ],
     "path": "/chat/P7sSvxo"
+  },
+  "chat:Dqr2MoB": {
+    "id": "Dqr2MoB",
+    "title": "how to show () in jsx react",
+    "model": {
+      "id": 1,
+      "installed": true,
+      "type": "local",
+      "created_by": "Meta",
+      "context_length": 4096,
+      "description": "Llama 2 is released by Meta Platforms, Inc. This model is trained on 2 trillion tokens, and by default supports a context length of 4096. Llama 2 Chat models are fine-tuned on over 1 million human annotations, and are made for chat.",
+      "name": "llama2:7b",
+      "label": "llama2 7b",
+      "memory": "8GB",
+      "storage": "3.8GB",
+      "config": {
+        "max_tokens": 100,
+        "temperature": 0.5,
+        "top_p": 0.9,
+        "frequency_penalty": 0
+      },
+      "max_config": {
+        "max_tokens": 3000,
+        "temperature": 5,
+        "top_p": 1,
+        "frequency_penalty": 0
+      },
+      "min_config": {
+        "max_tokens": 200,
+        "temperature": 0.01,
+        "top_p": 0.01,
+        "frequency_penalty": 0.01
+      }
+    },
+    "createdAt": "2024-03-28T22:23:32.565Z",
+    "messages": [
+      {
+        "id": "DbptSHh",
+        "role": "user",
+        "content": "how to show () in jsx react"
+      },
+      {
+        "id": "1lLRwrF",
+        "role": "assistant",
+        "content": "To show parentheses in JSX in React, you can simply include them within curly braces `{}`. This will allow you to render parentheses as part of your JSX code.\n\nHere's an example of how you can show parentheses in JSX in React:\n\n```jsx\nimport React from 'react';\n\nconst Component = () => {\n  return (\n    <div>\n      <p>{'()'}</p>\n    </div>\n  );\n}\n\nexport default Component;\n```\n\nIn the above example, the parentheses `()` are enclosed within single quotes within the curly braces to render them in JSX."
+      }
+    ],
+    "path": "/chat/Dqr2MoB"
+  },
+  "chat:eB2BqE1": {
+    "id": "eB2BqE1",
+    "title": "I want you to act as a title generator for written pieces. I will provide you with the topic and key",
+    "model": {
+      "id": 1,
+      "installed": true,
+      "type": "local",
+      "created_by": "Meta",
+      "context_length": 4096,
+      "description": "Llama 2 is released by Meta Platforms, Inc. This model is trained on 2 trillion tokens, and by default supports a context length of 4096. Llama 2 Chat models are fine-tuned on over 1 million human annotations, and are made for chat.",
+      "name": "llama2:7b",
+      "label": "llama2 7b",
+      "memory": "8GB",
+      "storage": "3.8GB",
+      "config": {
+        "max_tokens": 100,
+        "temperature": 0.5,
+        "top_p": 0.9,
+        "frequency_penalty": 0
+      },
+      "max_config": {
+        "max_tokens": 3000,
+        "temperature": 5,
+        "top_p": 1,
+        "frequency_penalty": 0
+      },
+      "min_config": {
+        "max_tokens": 200,
+        "temperature": 0.01,
+        "top_p": 0.01,
+        "frequency_penalty": 0.01
+      }
+    },
+    "createdAt": "2024-03-28T23:36:51.410Z",
+    "messages": [
+      {
+        "id": "S3JLtG1",
+        "role": "user",
+        "content": "I want you to act as a title generator for written pieces. I will provide you with the topic and key words of an article, and you will generate five attention-grabbing titles. Please keep the title concise and under 20 words, and ensure that the meaning is maintained. Replies will utilize the language type of the topic. My first topic is How to use ollama"
+      },
+      {
+        "id": "A2eTK7L",
+        "role": "assistant",
+        "content": "Absolutely! Let's get started with generating five attention-grabbing titles for the topic \"How to use ollama\":\n\n1. \"Mastering Ollama: A Beginner's Guide\"\n2. \"Unlocking Ollama's Potential: Step-by-Step Tutorial\"\n3. \"Ollama Unleashed: Your Ultimate User Manual\"\n4. \"Ollama Demystified: Expert Tips and Tricks\"\n5. \"Navigating Ollama Like a Pro: Essential Strategies\" \n\nI hope these titles capture the essence of your article topic! Let me know if you need more titles or assistance with anything else."
+      }
+    ],
+    "path": "/chat/eB2BqE1"
   }
 }

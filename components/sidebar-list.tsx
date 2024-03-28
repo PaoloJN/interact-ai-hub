@@ -4,16 +4,12 @@ import { SidebarItems } from '@/components/sidebar-items'
 import { ThemeToggle } from '@/components/theme-toggle'
 import { cache } from 'react'
 
-import { getAIState, useAIState } from 'ai/rsc'
-import { getModelIcon } from '@/components/ui/icons'
-
 interface SidebarListProps {
   children?: React.ReactNode
 }
 
 const loadChats = cache(async () => {
   const chats = await getChats()
-  // reverse the order of chats; display the most recent chat first / animate the most recent chat first
   return chats?.reverse()
 })
 
@@ -27,7 +23,7 @@ export async function SidebarList({}: SidebarListProps) {
       </div>
       <div className="flex-1 overflow-auto">
         {chats?.length ? (
-          <div className="space-y-2 px-2">
+          <div className="space-y-1 px-3">
             <SidebarItems chats={chats} />
           </div>
         ) : (

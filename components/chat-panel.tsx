@@ -11,8 +11,6 @@ import { useSidebar } from '@/lib/hooks/use-sidebar'
 export interface ChatPanelProps {
   id?: string
   title?: string
-  input: string
-  setInput: (value: string) => void
   isAtBottom: boolean
   scrollToBottom: () => void
 }
@@ -20,8 +18,6 @@ export interface ChatPanelProps {
 export function ChatPanel({
   id,
   title,
-  input,
-  setInput,
   isAtBottom,
   scrollToBottom
 }: ChatPanelProps) {
@@ -101,7 +97,7 @@ export function ChatPanel({
             ))}
         </div> */}
 
-        <PromptForm input={input} setInput={setInput} />
+        <PromptForm />
         {/* <FooterText className="hidden sm:block" /> */}
       </div>
     </div>

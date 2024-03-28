@@ -38,7 +38,7 @@ export function SidebarItem({ index, chat, children }: SidebarItemProps) {
 
   return (
     <motion.div
-      className="relative h-8"
+      className="relative"
       variants={{
         initial: {
           height: 0,
@@ -56,28 +56,15 @@ export function SidebarItem({ index, chat, children }: SidebarItemProps) {
         ease: 'easeIn'
       }}
     >
-      <div className="absolute left-2 top-[6px] flex size-6 items-center justify-center">
-        {chat.sharePath ? (
-          <Tooltip delayDuration={1000}>
-            <TooltipTrigger
-              tabIndex={-1}
-              className="focus:bg-muted focus:ring-1 focus:ring-ring"
-            >
-              <IconUsers className="mr-2 mt-1 text-zinc-500" />
-            </TooltipTrigger>
-            <TooltipContent>This is a shared chat.</TooltipContent>
-          </Tooltip>
-        ) : (
-          // <IconMessage className="mr-2 mt-1 text-zinc-500" />
-          <span className="mr-2">{icon}</span>
-        )}
+      <div className="absolute left-3 top-[8px] flex size-6 items-center justify-center">
+        <span className="mr-2">{icon}</span>
       </div>
       <Link
         href={chat.path}
         className={cn(
-          buttonVariants({ variant: 'outline' }),
-          'group w-full px-8 transition-colors hover:bg-zinc-200/40 dark:hover:bg-zinc-300/10',
-          isActive && 'bg-zinc-200 pr-16 font-semibold dark:bg-zinc-800'
+          buttonVariants({ variant: 'ghost' }),
+          'group w-full px-10 py-[20px] transition-colors hover:bg-zinc-300/40 dark:hover:bg-zinc-300/10',
+          isActive && 'bg-background pr-16 font-semibold dark:bg-zinc-900'
         )}
       >
         <div

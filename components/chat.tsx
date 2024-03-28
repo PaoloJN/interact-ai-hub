@@ -15,6 +15,8 @@ import { Models } from '@/lib/types'
 import { useSidebar } from '@/lib/hooks/use-sidebar'
 // import { toast } from 'sonner'
 
+import { useInput } from '@/lib/hooks/use-form-input'
+
 export interface ChatProps extends React.ComponentProps<'div'> {
   initialMessages?: Message[]
   id?: string
@@ -24,7 +26,8 @@ export interface ChatProps extends React.ComponentProps<'div'> {
 export function Chat({ id, className, models }: ChatProps) {
   const router = useRouter()
   const path = usePathname()
-  const [input, setInput] = useState('')
+  // const [input, setInput] = useState('')
+  const { inputValue, setInputValue } = useInput()
   const [messages] = useUIState()
   const [aiState] = useAIState()
 
@@ -45,7 +48,8 @@ export function Chat({ id, className, models }: ChatProps) {
 
   useEffect(() => {
     setNewChatId(id)
-  })
+    setInputValue('')
+  }, [])
 
   const { messagesRef, scrollRef, visibilityRef, isAtBottom, scrollToBottom } =
     useScrollAnchor()
@@ -69,8 +73,6 @@ export function Chat({ id, className, models }: ChatProps) {
       </div>
       <ChatPanel
         id={id}
-        input={input}
-        setInput={setInput}
         isAtBottom={isAtBottom}
         scrollToBottom={scrollToBottom}
       />

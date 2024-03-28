@@ -2,35 +2,31 @@
 
 import * as React from 'react'
 import Textarea from 'react-textarea-autosize'
-
 import { useActions, useUIState } from 'ai/rsc'
-
 import { UserMessage } from './stocks/message'
 import { type AI } from '@/lib/chat/actions'
 import { Button } from '@/components/ui/button'
 import { IconArrowElbow, IconPlus } from '@/components/ui/icons'
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger
-} from '@/components/ui/tooltip'
 import { useEnterSubmit } from '@/lib/hooks/use-enter-submit'
 import { nanoid } from 'nanoid'
 import { useRouter } from 'next/navigation'
 import { LightningBoltIcon } from '@radix-ui/react-icons'
 
-export function PromptForm({
-  input,
-  setInput
-}: {
-  input: string
-  setInput: (value: string) => void
-}) {
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger
+} from '@/components/ui/tooltip'
+import { useInput } from '@/lib/hooks/use-form-input'
+
+export function PromptForm() {
   const router = useRouter()
   const { formRef, onKeyDown } = useEnterSubmit()
   const inputRef = React.useRef<HTMLTextAreaElement>(null)
   const { submitUserMessage } = useActions()
   const [_, setMessages] = useUIState<typeof AI>()
+
+  const { inputValue, setInputValue } = useInput()
 
   React.useEffect(() => {
     if (inputRef.current) {
@@ -49,8 +45,8 @@ export function PromptForm({
           e.target['message']?.blur()
         }
 
-        const value = input.trim()
-        setInput('')
+        const value = inputValue.trim()
+        setInputValue('')
         if (!value) return
 
         // Optimistically add user message UI
@@ -96,13 +92,13 @@ export function PromptForm({
           autoCorrect="off"
           name="message"
           rows={1}
-          value={input}
-          onChange={e => setInput(e.target.value)}
+          value={inputValue}
+          onChange={e => setInputValue(e.target.value)}
         />
         <div className="absolute right-0 top-[13px] sm:right-4">
           <Tooltip>
             <TooltipTrigger asChild>
-              <Button type="submit" size="icon" disabled={input === ''}>
+              <Button type="submit" size="icon" disabled={inputValue === ''}>
                 <IconArrowElbow />
                 <span className="sr-only">Send message</span>
               </Button>

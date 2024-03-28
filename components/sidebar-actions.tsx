@@ -22,6 +22,7 @@ import {
   TooltipContent,
   TooltipTrigger
 } from '@/components/ui/tooltip'
+import { DotsHorizontalIcon } from '@radix-ui/react-icons'
 
 interface SidebarActionsProps {
   chat: Chat
@@ -39,7 +40,7 @@ export function SidebarActions({ chat, removeChat }: SidebarActionsProps) {
         <TooltipTrigger asChild>
           <Button
             variant="ghost"
-            className="size-7 p-0 hover:bg-background"
+            className="size-8 p-0 hover:bg-gray-100 dark:hover:bg-zinc-800"
             disabled={isRemovePending}
             onClick={() => setDeleteDialogOpen(true)}
           >
