@@ -25,7 +25,7 @@ export async function SidebarDesktop({ children, side }: SidebarDesktopProps) {
     <Sidebar
       side={side}
       className={cn(
-        'peer absolute inset-y-0 z-30 hidden bg-muted duration-300 ease-in-out data-[state=open]:translate-x-0 lg:flex lg:w-[250px] xl:w-[300px]',
+        'peer absolute inset-y-0 z-30 hidden bg-background duration-300 ease-in-out data-[state=open]:translate-x-0 lg:flex lg:w-[250px] xl:w-[300px]',
         side === 'left'
           ? 'border-r left-0 -translate-x-full'
           : 'border-l right-0 translate-x-full'

@@ -49,7 +49,7 @@ export function Chat({ id, className, models }: ChatProps) {
   useEffect(() => {
     setNewChatId(id)
     setInputValue('')
-  }, [])
+  }, [id, setNewChatId, setInputValue])
 
   const { messagesRef, scrollRef, visibilityRef, isAtBottom, scrollToBottom } =
     useScrollAnchor()

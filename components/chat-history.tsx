@@ -13,7 +13,7 @@ interface ChatHistoryProps {}
 export function ChatHistory({}: ChatHistoryProps) {
   return (
     <div className="flex flex-col h-full">
-      <div className="mt-4 px-2">
+      <div className="mt-3 px-2">
         <Link
           href="/"
           className={cn(

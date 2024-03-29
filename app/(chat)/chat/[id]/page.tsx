@@ -19,14 +19,14 @@ export interface ChatPageProps {
   }
 }
 
-export async function generateMetadata({
-  params
-}: ChatPageProps): Promise<Metadata> {
-  const chat = await getChat(params.id)
-  return {
-    title: chat?.title.toString().slice(0, 50) ?? 'Chat'
-  }
-}
+// export async function generateMetadata({
+//   params
+// }: ChatPageProps): Promise<Metadata> {
+//   const chat = await getChat(params.id)
+//   return {
+//     title: chat?.title.toString().slice(0, 50) ?? 'Chat'
+//   }
+// }
 
 export default async function ChatPage({ params }: ChatPageProps) {
   const chat = await getChat(params.id)

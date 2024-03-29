@@ -146,7 +146,6 @@ async function submitUserMessage(content: string) {
   let textNode: undefined | React.ReactNode
 
   const selectedModel = aiState.get().model || 'gpt-3.5-turbo'
-  console.log('selectedModel', selectedModel)
 
   const ui = render({
     // model: 'gpt-3.5-turbo',

@@ -13,7 +13,7 @@ interface PromptLibraryProps {}
 export function PromptLibrary({}: PromptLibraryProps) {
   return (
     <div className="flex flex-col h-full">
-      <div className="mt-4 px-2">
+      {/* <div className="mt-3 px-2">
         <Link
           href="/"
           className={cn(
@@ -24,7 +24,7 @@ export function PromptLibrary({}: PromptLibraryProps) {
           <IconPlus className="-translate-x-2 stroke-2" />
           New Prompt
         </Link>
-      </div>
+      </div> */}
       <React.Suspense
         fallback={
           <div className="flex flex-col flex-1 px-4 space-y-4 overflow-auto">

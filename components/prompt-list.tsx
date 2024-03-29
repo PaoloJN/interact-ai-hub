@@ -40,7 +40,7 @@ export async function PromptList({}: PromptListProps) {
         <h4 className="text-sm font-medium">Prompt Library</h4>
       </div>
       <div className="flex-1 overflow-auto">
-        <div className="space-y-2 px-2">
+        <div className="space-y-2 px-3">
           {/* <SidebarItems chats={chats} /> */}
           <Tabs defaultValue="all">
             <TabsList className=" rounded-sm">
@@ -51,6 +51,7 @@ export async function PromptList({}: PromptListProps) {
 
             <TabsContent value="all">
               <div className="flex flex-col space-y-2">
+                {/* @ts-ignore */}
                 {prompts.map(prompt => (
                   <PromptCard key={prompt.id} prompt={prompt} />
                 ))}

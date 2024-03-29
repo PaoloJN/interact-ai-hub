@@ -31,38 +31,38 @@ export function EmptyScreen() {
   return (
     <div className="mx-auto max-w-2xl px-4 pt-6 md:pt-16">
       <Card>
-        <div className="px-6 pt-5 text-sm bg-white rounded-t-lg">
+        <div className="px-6 pt-5 text-sm bg-background rounded-t-lg">
           <div className="flex items-center">
             <span className="mr-2">{icon}</span>
 
             <div className="space-x-1">
-              <span className="text-zinc-600">{selected.created_by}</span>
-              <span className="text-zinc-400">/</span>
-              <span className="font-medium text-zinc-900">
+              <span className="text-zinc-500 dark:text-zinc-300">Model</span>
+              <span className="text-foreground">/</span>
+              <span className="font-medium text-foreground">
                 {selected.label}
               </span>
             </div>
           </div>
-          <div className="mt-4 text-xs text-zinc-500">
+          <div className="mt-4 text-xs text-zinc-500 dark:text-zinc-400">
             {selected.description}
           </div>
         </div>
-        <CardContent className="px-6 py-5 text-xs bg-white divide-y">
+        <CardContent className="px-6 py-5 text-xs bg-background divide-y">
           <div className="flex items-start py-3">
             <div className="font-medium w-28">Context</div>
-            <div className="flex-1 text-zinc-600">
+            <div className="flex-1 text-zinc-600 dark:text-zinc-400">
               {/* {selected.properties.context} tokens */}
             </div>
           </div>
           <div className="flex items-start py-3">
             <div className="font-medium w-28">Input Pricing</div>
-            <div className="flex-1 text-zinc-600">
+            <div className="flex-1 text-zinc-600 dark:text-zinc-400">
               {/* {selected.properties.inputPricing} */}
             </div>
           </div>
           <div className="flex items-start py-3">
             <div className="font-medium w-28">Output Pricing</div>
-            <div className="flex-1 text-zinc-600">
+            <div className="flex-1 text-zinc-600 dark:text-zinc-400">
               {/* {selected.properties.outputPricing} */}
             </div>
           </div>
@@ -83,7 +83,7 @@ export function EmptyScreen() {
             ))}
           </div> */}
         </CardContent>
-        <div className="px-6 py-5 text-xs font-medium border-t rounded-b-lg bg-zinc-100/75">
+        <div className="px-6 py-5 text-xs font-medium border-t rounded-b-lg bg-zinc-100/75 dark:bg-zinc-900">
           <div className="flex items-center justify-between">
             <div className="flex items-center justify-between space-x-4">
               <a
