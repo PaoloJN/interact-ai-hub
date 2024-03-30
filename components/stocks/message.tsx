@@ -15,12 +15,12 @@ import { ChatMessageActions } from '../chat-message-actions'
 
 export function UserMessage({ children }: { children: React.ReactNode }) {
   return (
-    <div className="group relative flex items-start">
+    <div className="group relative flex items-start -ml-8">
       {/* shadow-sm" */}
-      <div className="flex size-[30px] shrink-0 select-none items-center justify-center rounded-md border bg-background">
+      <div className="flex size-[30px] shrink-0 select-none items-center justify-center rounded-md border">
         <IconUser />
       </div>
-      <div className="ml-4 flex-1 space-y-2 overflow-hidden pl-2">
+      <div className="ml-4 flex-1 space-y-2 overflow-hidden pl-2 dark:text-gray-300 text-gray-700">
         {children}
       </div>
     </div>
@@ -42,7 +42,7 @@ export function BotMessage({
   // TODO: Make chat actions show on hover and copy message
 
   return (
-    <div className={cn('group relative flex items-start', className)}>
+    <div className={cn('group relative flex items-start -ml-8', className)}>
       {/* bg-primary text-primary-foreground shadow-sm */}
       <div className="flex size-[28px] shrink-0 select-none items-center justify-center rounded-md border bg-background">
         {/* <IconOpenAI /> */}
@@ -142,7 +142,7 @@ export function SpinnerMessage() {
   const icon = getModelIcon(aiState.model.created_by)
 
   return (
-    <div className="group relative flex items-start">
+    <div className="group relative flex items-start -ml-8">
       <div className="flex size-[28px] shrink-0 select-none items-center justify-center rounded-md border bg-background">
         <span>{icon}</span>
       </div>

@@ -18,7 +18,7 @@ export function ModelConfig({}: ModelConfigProps) {
       </DropdownMenuTrigger>
 
       <DropdownMenuContent align="center" className="p-2">
-        <TabsDemo />
+        model config is in development :)
       </DropdownMenuContent>
     </DropdownMenu>
   )

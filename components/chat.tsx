@@ -49,7 +49,8 @@ export function Chat({ id, className, models }: ChatProps) {
   useEffect(() => {
     setNewChatId(id)
     setInputValue('')
-  }, [id, setNewChatId, setInputValue])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   const { messagesRef, scrollRef, visibilityRef, isAtBottom, scrollToBottom } =
     useScrollAnchor()

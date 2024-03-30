@@ -1,10 +1,11 @@
 import * as React from 'react'
 import { CaretSortIcon } from '@radix-ui/react-icons'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
 import { ModelItem } from './model-selector-item'
 import { useAIState } from 'ai/rsc'
 import { getModelIcon } from '@/components/ui/icons'
 import { Models } from '@/lib/types'
+import { usePathname } from 'next/navigation'
 
 import { Button } from '@/components/ui/button'
 import {
@@ -26,6 +27,9 @@ interface ModelSelectorProps {
 }
 
 export function ModelSelector({ models }: ModelSelectorProps) {
+  // url and check if include something after chat then don't allow to change model
+  const pathname = usePathname()
+  const router = useRouter()
   // const router = useRouter()
   const [aiState, setAIState] = useAIState()
 
@@ -73,10 +77,13 @@ export function ModelSelector({ models }: ModelSelectorProps) {
                   isSelected={selectedModel?.id === model.id}
                   onPeek={model => setPeekedModel(model)}
                   onSelect={() => {
-                    setSelectedModel(model)
-                    setAIState({ ...aiState, model: model })
-                    // router.push(`/?model=${model.name}`)
-                    setOpen(false)
+                    if (pathname.includes('/chat/')) {
+                      router.push(`/?model=${model.name}`)
+                    } else {
+                      setSelectedModel(model)
+                      setAIState({ ...aiState, model: model })
+                      setOpen(false)
+                    }
                   }}
                 />
               ))}

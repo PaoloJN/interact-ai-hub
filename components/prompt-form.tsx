@@ -6,7 +6,7 @@ import { useActions, useUIState } from 'ai/rsc'
 import { UserMessage } from './stocks/message'
 import { type AI } from '@/lib/chat/actions'
 import { Button } from '@/components/ui/button'
-import { IconArrowElbow, IconPlus } from '@/components/ui/icons'
+import { IconArrowElbow, IconPaperPlane, IconPlus } from '@/components/ui/icons'
 import { useEnterSubmit } from '@/lib/hooks/use-enter-submit'
 import { nanoid } from 'nanoid'
 import { useRouter } from 'next/navigation'
@@ -95,11 +95,17 @@ export function PromptForm() {
           value={inputValue}
           onChange={e => setInputValue(e.target.value)}
         />
-        <div className="absolute right-0 top-[13px] sm:right-4">
+        <div className="absolute right-0 top-[14px] sm:right-4">
           <Tooltip>
             <TooltipTrigger asChild>
-              <Button type="submit" size="icon" disabled={inputValue === ''}>
-                <IconArrowElbow />
+              <Button
+                type="submit"
+                size="icon"
+                disabled={inputValue === ''}
+                className="size-[32px]"
+              >
+                {/* <IconArrowElbow /> */}
+                <IconPaperPlane />
                 <span className="sr-only">Send message</span>
               </Button>
             </TooltipTrigger>

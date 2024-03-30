@@ -16,7 +16,7 @@ export function ChatList({ messages }: ChatList) {
           key={message.id}
           className={`${index % 2 === 0 ? 'bg-gray-50 dark:bg-background/30' : 'bg-white dark:bg-background/60'}`}
         >
-          <div className="relative mx-auto max-w-2xl px-4 p-6 md:p-8">
+          <div className="relative mx-auto max-w-2xl px-2 p-6 md:p-8">
             {message.display}
           </div>
         </div>

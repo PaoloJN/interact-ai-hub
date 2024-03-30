@@ -9,20 +9,25 @@ export function ExternalLink({
     <a
       href={href}
       target="_blank"
-      className="inline-flex flex-1 justify-center gap-1 leading-4 hover:underline"
+      className="inline-flex flex-1 justify-center gap-0 leading-4 hover:underline"
     >
       <span>{children}</span>
       <svg
+        fill="none"
+        height="16"
+        shapeRendering="geometricPrecision"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.5"
+        viewBox="0 0 24 24"
+        width="16"
         aria-hidden="true"
-        height="7"
-        viewBox="0 0 6 6"
-        width="7"
-        className="opacity-70"
+        className="size-3 ml-1 mt-[1px]"
       >
-        <path
-          d="M1.25215 5.54731L0.622742 4.9179L3.78169 1.75597H1.3834L1.38936 0.890915H5.27615V4.78069H4.40513L4.41109 2.38538L1.25215 5.54731Z"
-          fill="currentColor"
-        ></path>
+        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+        <path d="M15 3h6v6"></path>
+        <path d="M10 14L21 3"></path>
       </svg>
     </a>
   )

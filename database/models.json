@@ -7,7 +7,7 @@
     "context_length": 4096,
     "description": "Llama 2 is released by Meta Platforms, Inc. This model is trained on 2 trillion tokens, and by default supports a context length of 4096. Llama 2 Chat models are fine-tuned on over 1 million human annotations, and are made for chat.",
     "name": "llama2:7b",
-    "label": "llama2 7b",
+    "label": "llama2",
     "memory": "8GB",
     "storage": "3.8GB",
     "config": {
@@ -181,7 +181,7 @@
   },
   "codellama:7b": {
     "id": 7,
-    "installed": false,
+    "installed": true,
     "type": "local",
     "created_by": "Meta",
     "context_length": 16384,
@@ -326,15 +326,15 @@
       "frequency_penalty": 0.01
     }
   },
-  "gemma:7b": {
+  "gemma:2b": {
     "id": 12,
-    "installed": false,
+    "installed": true,
     "type": "local",
     "created_by": "Google",
     "context_length": 4096,
     "description": "Gemma, by Google DeepMind, is a family of lightweight, state-of-the-art open models built by Google DeepMind",
-    "name": "gemma:7b",
-    "label": "gemma:7b",
+    "name": "gemma:2b",
+    "label": "gemma:2b",
     "memory": "8GB",
     "storage": "5.2GB",
     "config": {
@@ -358,7 +358,7 @@
   },
   "llava:7b": {
     "id": 13,
-    "installed": false,
+    "installed": true,
     "type": "local",
     "created_by": "LLaVA",
     "context_length": 4096,

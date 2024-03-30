@@ -43,11 +43,11 @@ export async function PromptList({}: PromptListProps) {
         <div className="space-y-2 px-3">
           {/* <SidebarItems chats={chats} /> */}
           <Tabs defaultValue="all">
-            <TabsList className=" rounded-sm">
+            {/* <TabsList className=" rounded-sm">
               <TabsTrigger value="all">All {`(${prompts.length})`}</TabsTrigger>
-              {/* <TabsTrigger value="custom">Custom</TabsTrigger> */}
+              <TabsTrigger value="custom">Custom</TabsTrigger>
               <TabsTrigger value="bookmarked">Bookmarked</TabsTrigger>
-            </TabsList>
+            </TabsList> */}
 
             <TabsContent value="all">
               <div className="flex flex-col space-y-2">
@@ -67,7 +67,7 @@ export async function PromptList({}: PromptListProps) {
 }
 
 // prompt item
-function PromptCard({ prompt }: any) {
+export function PromptCard({ prompt }: any) {
   const { inputValue, setInputValue } = useInput()
 
   // check mark on action for 2000 ms
@@ -79,7 +79,7 @@ function PromptCard({ prompt }: any) {
     <>
       <div className="bg-background py-1 px-2 rounded-md dark:border">
         <div className="flex flex-row w-full items-center justify-between">
-          <span className="text-[13px] font-semibold text-foreground">
+          <span className="text-[13px] font-semibold text-foreground capitalize">
             {prompt.title}
           </span>
           <DropdownMenu>
@@ -109,10 +109,10 @@ function PromptCard({ prompt }: any) {
                 <RocketIcon className="size-4 mr-2" />
                 <span className="text-xs">Use Prompt</span>
               </DropdownMenuItem>
-              <DropdownMenuItem>
+              {/* <DropdownMenuItem>
                 <BookmarkIcon className="size-4 mr-2" />
                 <span className="text-xs">Bookmark</span>
-              </DropdownMenuItem>
+              </DropdownMenuItem> */}
               <DropdownMenuItem
                 onClick={() => {
                   setIsAction(true)
@@ -133,5 +133,26 @@ function PromptCard({ prompt }: any) {
         </div>
       </div>
     </>
+  )
+}
+
+export function PromptCardHome({ prompt }: any) {
+  const { inputValue, setInputValue } = useInput()
+
+  return (
+    <button
+      className="flex flex-col bg-background p-4 space-y-2 rounded-md dark:border text-start"
+      onClick={() => {
+        setInputValue(prompt.prompt)
+      }}
+    >
+      {/* capitalize first letter */}
+      <span className="text-[13px] font-semibold text-foreground capitalize">
+        {prompt.title}
+      </span>
+      <div className="text-xs text-muted-foreground leading-normal">
+        {prompt.remark}
+      </div>
+    </button>
   )
 }

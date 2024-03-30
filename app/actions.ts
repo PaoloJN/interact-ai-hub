@@ -109,6 +109,8 @@ export async function getOllamaModels() {
   })
   const data = await res.json()
 
+  console.log('data', data)
+
   return data
 }
 

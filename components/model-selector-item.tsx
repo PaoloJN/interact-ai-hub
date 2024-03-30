@@ -38,7 +38,7 @@ export function ModelItem({
       key={model.id}
       onSelect={onSelect}
       ref={ref}
-      className="text-xs aria-selected:bg-zinc-100 aria-selected:text-black"
+      className="text-xs aria-selected:bg-zinc-800  "
     >
       <span className="mr-2">{icon}</span>
       <span className="truncate max-w-[200px] @sm:max-w-[300px] text-xs">

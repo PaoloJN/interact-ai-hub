@@ -7,8 +7,8 @@ import {
   isOllamaAvailable,
   syncModels
 } from '../actions'
-import { getAIState, useAIState } from 'ai/rsc'
 import { Models } from '@/lib/types'
+import { OnBoardingScreen } from '@/components/onboarding-screen'
 
 interface IndexPageProps {
   searchParams: {
@@ -20,17 +20,14 @@ export default async function IndexPage({ searchParams }: IndexPageProps) {
   const id = nanoid()
 
   const status = await isOllamaAvailable()
-  if (!status) return <div>OLLAMA is not available</div>
+  if (!status) return <OnBoardingScreen />
 
   const ollama_models = await getOllamaModels()
-  if (ollama_models.length === 0) return <div>No models installed</div>
+  if (ollama_models.length === 0) return <OnBoardingScreen />
 
   await syncModels(ollama_models)
-
   const models: Models = (await getModelsList()) ?? {}
-
   const installed = Object.values(models).filter(model => model.installed)
-
   const defaultModel = searchParams.model
     ? installed.find(model => model.name === searchParams.model)
     : installed[0]
