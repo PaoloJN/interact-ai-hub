@@ -8,7 +8,7 @@ InteractAI Hub provides a simple and easy-to-use interface for interacting with 
 </p>
 
 <p align="center">
-  <a href=""><strong>Demo Video</strong></a> ·
+  <a href="https://www.youtube.com/watch?v=d35tmCKP4ds&ab_channel=PaoloNessim"><strong>Demo Video</strong></a> ·
   <a href="#features"><strong>Features</strong></a> ·
   <a href="#authors"><strong>Roadmap</strong></a> ·
   <a href="#running-locally"><strong>Running locally</strong></a>.
