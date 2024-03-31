@@ -1,7 +1,6 @@
-  <!-- <img alt="Next.js 14 and App Router-ready AI chatbot." src="https://chat.vercel.ai/opengraph-image.png"> -->
-  <h1 align="center">InteractAI Hub</h1>
-
 <img width="1980" alt="Screenshot 2023-10-29 at 13 39 22" src="public/screen.png">
+
+<h1 align="center">InteractAI Hub</h1>
 
 <p align="center" style="padding: 20px 0 ;">
 InteractAI Hub provides a simple and easy-to-use interface for interacting with AI models.
