@@ -2,7 +2,7 @@
 
 <h1 align="center">InteractAI Hub</h1>
 
-<p align="center" style="padding: 20px 0 ;">
+<p align="center" style="padding: 20px 0;">
 InteractAI Hub provides a simple and easy-to-use interface for interacting with AI models.
 </p>
 
@@ -15,7 +15,7 @@ InteractAI Hub provides a simple and easy-to-use interface for interacting with 
 </p>
 <br/>
 
-<p align="center" style="padding: 20px 0 ;">
+<p align="center" style="padding: 20px 0;">
 This project is a work in progress and will be updated with new features and improvements.
 </p>
 
@@ -31,7 +31,7 @@ This project is a work in progress and will be updated with new features and imp
 
 ## Roadmap
 
-- [] Convert to desktop app using [Tauri](https://tauri.app/)
+- Convert to desktop app using [Tauri](https://tauri.app/)
 
 ## Running locally
 
@@ -44,11 +44,11 @@ pnpm install
 pnpm dev
 ```
 
-Your app template should now be running on [localhost:3000](http://localhost:3000/).
+Should now be running on [localhost:3000](http://localhost:3000/).
 
 ## Acknowledgments
 
-This woun't be possible without the following resources:
+This won't be possible without the following resources:
 
 - [Vercel AI SDK](https://sdk.vercel.ai/docs)
 - [Vercel Templates](https://vercel.com/templates)
